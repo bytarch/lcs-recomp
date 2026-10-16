@@ -50,7 +50,7 @@ if(ANDROID)
         "${LCS_ANDROID_DEPS_DIR}/lib/libavutil.so"
         "${LCS_ANDROID_DEPS_DIR}/lib/libswresample.so"
         "${LCS_ANDROID_DEPS_DIR}/lib/libswscale.so"
-        log android dl z)
+        vulkan log android dl z)
     target_link_options(LCSNative PRIVATE
         "-Wl,-rpath,\$ORIGIN"
         "-Wl,--no-undefined")

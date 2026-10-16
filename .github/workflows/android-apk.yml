@@ -23,6 +23,7 @@ jobs:
     env:
       ANDROID_NDK_VERSION: 26.1.10909125
       GRADLE_VERSION: 8.9
+      CCACHE_DIR: ${{ github.workspace }}/.ccache
 
     steps:
       - uses: actions/checkout@v4
@@ -66,6 +67,16 @@ jobs:
           key: android-dist-${{ runner.os }}-ndk${{ env.ANDROID_NDK_VERSION }}-${{ hashFiles('android/build-deps.sh', 'android/prepare-sdl-java.sh') }}
           restore-keys: |
             android-dist-${{ runner.os }}-ndk${{ env.ANDROID_NDK_VERSION }}-
+
+      # ccache is content-addressed, so one rolling cache serves every ABI and
+      # only recompiles what actually changed.
+      - name: Restore compiler cache
+        uses: actions/cache@v4
+        with:
+          path: .ccache
+          key: android-ccache-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            android-ccache-${{ runner.os }}-
 
       - name: Build SDL2 and FFmpeg
         run: |
