@@ -36,15 +36,33 @@ HOST_TAG="linux-x86_64"
 mkdir -p "${SRC}" "${WORK}" "${STAGE}"
 
 # ---------------------------------------------------------------- sources ---
-if [ ! -d "${SRC}/SDL2-${SDL_VERSION}" ]; then
-  echo ">> fetching SDL2 ${SDL_VERSION}"
-  curl -fsSL "https://github.com/libsdl-org/SDL/releases/download/release-${SDL_VERSION}/SDL2-${SDL_VERSION}.tar.gz" \
-    | tar -xz -C "${SRC}"
+# Download to a file first and refuse to continue on an empty or truncated
+# archive; piping curl straight into tar hides a failed transfer as an empty
+# extraction.
+fetch_and_extract() {
+  local url="$1" top_level="$2" archive="${SRC}/$(basename "$1")"
+  echo ">> fetching ${url}"
+  curl -fSL --retry 3 --retry-delay 2 -o "${archive}" "${url}"
+  if [ ! -s "${archive}" ]; then
+    echo "download produced no data: ${url}" >&2
+    exit 1
+  fi
+  tar -xf "${archive}" -C "${SRC}"
+  if [ ! -e "${SRC}/${top_level}/configure" ] && [ ! -e "${SRC}/${top_level}/CMakeLists.txt" ]; then
+    echo "extracted ${top_level} from ${archive} is incomplete" >&2
+    exit 1
+  fi
+}
+
+if [ ! -f "${SRC}/SDL2-${SDL_VERSION}/CMakeLists.txt" ]; then
+  fetch_and_extract \
+    "https://github.com/libsdl-org/SDL/releases/download/release-${SDL_VERSION}/SDL2-${SDL_VERSION}.tar.gz" \
+    "SDL2-${SDL_VERSION}"
 fi
-if [ ! -d "${SRC}/ffmpeg-${FFMPEG_VERSION}" ]; then
-  echo ">> fetching FFmpeg ${FFMPEG_VERSION}"
-  curl -fsSL "https://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.xz" \
-    | tar -xJ -C "${SRC}"
+if [ ! -f "${SRC}/ffmpeg-${FFMPEG_VERSION}/configure" ]; then
+  fetch_and_extract \
+    "https://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.xz" \
+    "ffmpeg-${FFMPEG_VERSION}"
 fi
 
 # ------------------------------------------------------------------- SDL2 ---
@@ -59,7 +77,7 @@ cmake -S "${SRC}/SDL2-${SDL_VERSION}" -B "${WORK}/sdl" -G Ninja \
   -DCMAKE_BUILD_TYPE=Release \
   -DSDL_SHARED=ON \
   -DSDL_STATIC=OFF \
-  -DSDL_TEST_LIBRARY=OFF \
+  -DSDL_TESTS=OFF \
   -DSDL_VULKAN=ON \
   -DSDL_VIDEO_OPENGLES=ON \
   -DSDL_VIDEO_OPENGLES2=ON \
