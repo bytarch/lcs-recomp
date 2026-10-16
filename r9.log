@@ -1,0 +1,588 @@
+Build APK	Assemble APK	﻿2026-10-16T08:28:49.2718251Z ##[group]Run gradle --no-daemon --stacktrace -PuseCcache=true \
+Build APK	Assemble APK	2026-10-16T08:28:49.2718535Z [36;1mgradle --no-daemon --stacktrace -PuseCcache=true \[0m
+Build APK	Assemble APK	2026-10-16T08:28:49.2718760Z [36;1m  -Pabis="${BUILD_ABIS// /,}" assembleRelease[0m
+Build APK	Assemble APK	2026-10-16T08:28:49.2770007Z shell: /usr/bin/bash -e {0}
+Build APK	Assemble APK	2026-10-16T08:28:49.2770144Z env:
+Build APK	Assemble APK	2026-10-16T08:28:49.2770254Z   ANDROID_NDK_VERSION: 26.1.10909125
+Build APK	Assemble APK	2026-10-16T08:28:49.2770394Z   GRADLE_VERSION: 8.9
+Build APK	Assemble APK	2026-10-16T08:28:49.2770556Z   ANDROID_NDK_HOME: /usr/local/lib/android/sdk/ndk/26.1.10909125
+Build APK	Assemble APK	2026-10-16T08:28:49.2770745Z   CMAKE_BUILD_PARALLEL_LEVEL: 4
+Build APK	Assemble APK	2026-10-16T08:28:49.2770900Z   GRADLE_OPTS: -Dorg.gradle.jvmargs=-Xmx4g
+Build APK	Assemble APK	2026-10-16T08:28:49.2771054Z   BUILD_ABIS: arm64-v8a
+Build APK	Assemble APK	2026-10-16T08:28:49.2771174Z ##[endgroup]
+Build APK	Assemble APK	2026-10-16T08:28:49.6581888Z 
+Build APK	Assemble APK	2026-10-16T08:28:49.6582964Z Welcome to Gradle 8.9!
+Build APK	Assemble APK	2026-10-16T08:28:49.6583355Z 
+Build APK	Assemble APK	2026-10-16T08:28:49.6584388Z Here are the highlights of this release:
+Build APK	Assemble APK	2026-10-16T08:28:49.6585593Z  - Enhanced Error and Warning Messages
+Build APK	Assemble APK	2026-10-16T08:28:49.6587880Z  - IDE Integration Improvements
+Build APK	Assemble APK	2026-10-16T08:28:49.6588347Z  - Daemon JVM Information
+Build APK	Assemble APK	2026-10-16T08:28:49.6588826Z 
+Build APK	Assemble APK	2026-10-16T08:28:49.6590100Z For more details see https://docs.gradle.org/8.9/release-notes.html
+Build APK	Assemble APK	2026-10-16T08:28:49.6590487Z 
+Build APK	Assemble APK	2026-10-16T08:28:49.7581457Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.9/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Build APK	Assemble APK	2026-10-16T08:28:50.3573129Z Daemon will be stopped at the end of the build 
+Build APK	Assemble APK	2026-10-16T08:28:55.5585658Z > Task :app:copyThirdPartyJniLibsarm64v8a
+Build APK	Assemble APK	2026-10-16T08:28:55.5587649Z > Task :app:prepareSdlJava
+Build APK	Assemble APK	2026-10-16T08:28:55.5588066Z > Task :app:preBuild
+Build APK	Assemble APK	2026-10-16T08:28:55.5588459Z > Task :app:preReleaseBuild
+Build APK	Assemble APK	2026-10-16T08:28:55.6584377Z > Task :app:checkReleaseAarMetadata
+Build APK	Assemble APK	2026-10-16T08:28:55.6584780Z > Task :app:generateReleaseResValues
+Build APK	Assemble APK	2026-10-16T08:28:55.6585019Z > Task :app:javaPreCompileRelease
+Build APK	Assemble APK	2026-10-16T08:28:55.7571103Z > Task :app:mapReleaseSourceSetPaths
+Build APK	Assemble APK	2026-10-16T08:28:55.7571493Z > Task :app:generateReleaseResources
+Build APK	Assemble APK	2026-10-16T08:28:55.7571808Z > Task :app:mergeReleaseResources
+Build APK	Assemble APK	2026-10-16T08:28:55.7572080Z > Task :app:packageReleaseResources
+Build APK	Assemble APK	2026-10-16T08:28:58.0578607Z > Task :app:createReleaseCompatibleScreenManifests
+Build APK	Assemble APK	2026-10-16T08:28:58.0579409Z > Task :app:extractDeepLinksRelease
+Build APK	Assemble APK	2026-10-16T08:28:58.0579883Z > Task :app:parseReleaseLocalResources
+Build APK	Assemble APK	2026-10-16T08:28:58.0580285Z > Task :app:processReleaseMainManifest
+Build APK	Assemble APK	2026-10-16T08:28:58.2574467Z > Task :app:processReleaseManifest
+Build APK	Assemble APK	2026-10-16T08:28:58.2574871Z > Task :app:extractProguardFiles
+Build APK	Assemble APK	2026-10-16T08:28:58.6597111Z > Task :app:configureCMakeRelease[arm64-v8a]
+Build APK	Assemble APK	2026-10-16T08:29:00.6577607Z 
+Build APK	Assemble APK	2026-10-16T08:29:00.6594437Z > Task :app:buildCMakeRelease[arm64-v8a]
+Build APK	Assemble APK	2026-10-16T08:29:00.6604111Z C/C++: ninja: Entering directory `/home/runner/work/lcs-recomp/lcs-recomp/android/app/.cxx/Release/3j5y2a41/arm64-v8a'
+Build APK	Assemble APK	2026-10-16T08:29:00.6633951Z C/C++: In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/guest_memory.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:00.6654293Z C/C++: /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:00.6673720Z C/C++:         out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:00.6693640Z C/C++:         ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:00.6724101Z C/C++: 1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:00.9604650Z C/C++: In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/elf32.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:00.9634894Z C/C++: /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:00.9684038Z C/C++:         out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:00.9724108Z C/C++:         ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:00.9753882Z C/C++: 1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:01.7604395Z C/C++: In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/sha256.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:01.7636350Z C/C++: /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:01.7637120Z C/C++:         out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:01.7659291Z C/C++:         ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:01.7695317Z C/C++: 1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:01.8644622Z C/C++: In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/nid_registry.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:01.8674976Z C/C++: /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:01.8704223Z C/C++:         out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:01.8704632Z C/C++:         ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:01.8733849Z C/C++: 1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:06.0594540Z C/C++: In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/runtime.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:06.0654570Z C/C++: /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:06.0714039Z C/C++:         out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:06.0743850Z C/C++:         ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:06.0773808Z C/C++: 1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:11.0603820Z C/C++: ccache /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --sysroot=/usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DLCSNative_EXPORTS -DLCS_VULKAN_GE_BACKEND=1 -I/home/runner/work/lcs-recomp/lcs-recomp/android/prebuilt -I/home/runner/work/lcs-recomp/lcs-recomp/android/dist/arm64-v8a/include -I/home/runner/work/lcs-recomp/lcs-recomp/lcs/host -I/home/runner/work/lcs-recomp/lcs-recomp/android/dist/arm64-v8a/include/SDL2 -I/home/runner/work/lcs-recomp/lcs-recomp/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O2 -O3 -DNDEBUG  -fPIC -std=c++20 -MD -MT lcs/CMakeFiles/LCSNative.dir/host/touch_controls.cpp.o -MF lcs/CMakeFiles/LCSNative.dir/host/touch_controls.cpp.o.d -o lcs/CMakeFiles/LCSNative.dir/host/touch_controls.cpp.o -c /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/touch_controls.cpp
+Build APK	Assemble APK	2026-10-16T08:29:11.0624447Z C/C++: /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/touch_controls.cpp:172:52: error: no matching function for call to 'clamp'
+Build APK	Assemble APK	2026-10-16T08:29:11.0650017Z C/C++:         input.analog_x = static_cast<std::uint8_t>(std::clamp(128 + move_x * 127.0f, 0, 255));
+Build APK	Assemble APK	2026-10-16T08:29:11.0673715Z C/C++:                                                    ^~~~~~~~~~
+Build APK	Assemble APK	2026-10-16T08:29:11.0674785Z C/C++: /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__algorithm/clamp.h:38:1: note: candidate template ignored: deduced conflicting types for parameter '_Tp' ('float' vs. 'int')
+Build APK	Assemble APK	2026-10-16T08:29:11.0703714Z C/C++: clamp(const _Tp& __v, const _Tp& __lo, const _Tp& __hi)
+Build APK	Assemble APK	2026-10-16T08:29:11.0723644Z C/C++: ^
+Build APK	Assemble APK	2026-10-16T08:29:11.0764180Z C/C++: /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__algorithm/clamp.h:27:1: note: candidate function template not viable: requires 4 arguments, but 3 were provided
+Build APK	Assemble APK	2026-10-16T08:29:11.0765224Z C/C++: clamp(const _Tp& __v, const _Tp& __lo, const _Tp& __hi, _Compare __comp)
+Build APK	Assemble APK	2026-10-16T08:29:11.0793633Z C/C++: ^
+Build APK	Assemble APK	2026-10-16T08:29:11.0823841Z C/C++: /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/touch_controls.cpp:173:52: error: no matching function for call to 'clamp'
+Build APK	Assemble APK	2026-10-16T08:29:11.0853910Z C/C++:         input.analog_y = static_cast<std::uint8_t>(std::clamp(128 + move_y * 127.0f, 0, 255));
+Build APK	Assemble APK	2026-10-16T08:29:11.0855208Z C/C++:                                                    ^~~~~~~~~~
+Build APK	Assemble APK	2026-10-16T08:29:11.0882657Z C/C++: /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__algorithm/clamp.h:38:1: note: candidate template ignored: deduced conflicting types for parameter '_Tp' ('float' vs. 'int')
+Build APK	Assemble APK	2026-10-16T08:29:11.0913728Z C/C++: clamp(const _Tp& __v, const _Tp& __lo, const _Tp& __hi)
+Build APK	Assemble APK	2026-10-16T08:29:11.0943642Z C/C++: ^
+Build APK	Assemble APK	2026-10-16T08:29:11.0944583Z C/C++: /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__algorithm/clamp.h:27:1: note: candidate function template not viable: requires 4 arguments, but 3 were provided
+Build APK	Assemble APK	2026-10-16T08:29:11.0973846Z C/C++: clamp(const _Tp& __v, const _Tp& __lo, const _Tp& __hi, _Compare __comp)
+Build APK	Assemble APK	2026-10-16T08:29:11.1003660Z C/C++: ^
+Build APK	Assemble APK	2026-10-16T08:29:11.1004059Z C/C++: 2 errors generated.
+Build APK	Assemble APK	2026-10-16T08:29:16.2578748Z C/C++: ccache /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --sysroot=/usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DLCSNative_EXPORTS -DLCS_VULKAN_GE_BACKEND=1 -I/home/runner/work/lcs-recomp/lcs-recomp/android/prebuilt -I/home/runner/work/lcs-recomp/lcs-recomp/android/dist/arm64-v8a/include -I/home/runner/work/lcs-recomp/lcs-recomp/lcs/host -I/home/runner/work/lcs-recomp/lcs-recomp/android/dist/arm64-v8a/include/SDL2 -I/home/runner/work/lcs-recomp/lcs-recomp/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O2 -O3 -DNDEBUG  -fPIC -std=c++20 -MD -MT lcs/CMakeFiles/LCSNative.dir/host/lcs_profile.cpp.o -MF lcs/CMakeFiles/LCSNative.dir/host/lcs_profile.cpp.o.d -o lcs/CMakeFiles/LCSNative.dir/host/lcs_profile.cpp.o -c /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/lcs_profile.cpp
+Build APK	Assemble APK	2026-10-16T08:29:16.2583866Z C/C++: /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/lcs_profile.cpp:3052:51: error: no member named 'clock_cast' in namespace 'std::chrono'
+Build APK	Assemble APK	2026-10-16T08:29:16.2584870Z C/C++:             const auto system_time = std::chrono::clock_cast<std::chrono::system_clock>(written);
+Build APK	Assemble APK	2026-10-16T08:29:16.2585506Z C/C++:                                      ~~~~~~~~~~~~~^
+Build APK	Assemble APK	2026-10-16T08:29:16.2586264Z C/C++: /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/lcs_profile.cpp:3052:87: error: expected '(' for function-style cast or type construction
+Build APK	Assemble APK	2026-10-16T08:29:16.2587183Z C/C++:             const auto system_time = std::chrono::clock_cast<std::chrono::system_clock>(written);
+Build APK	Assemble APK	2026-10-16T08:29:16.2587807Z C/C++:                                                              ~~~~~~~~~~~~~~~~~~~~~~~~~^
+Build APK	Assemble APK	2026-10-16T08:29:16.2588275Z C/C++: 2 errors generated.
+Build APK	Assemble APK	2026-10-16T08:29:28.2570544Z 
+Build APK	Assemble APK	2026-10-16T08:29:28.2571411Z > Task :app:processReleaseManifestForPackage
+Build APK	Assemble APK	2026-10-16T08:29:42.5571320Z > Task :app:buildCMakeRelease[arm64-v8a] FAILED
+Build APK	Assemble APK	2026-10-16T08:29:42.6646624Z 
+Build APK	Assemble APK	2026-10-16T08:29:42.6656755Z FAILURE: Build failed with an exception.
+Build APK	Assemble APK	2026-10-16T08:29:42.6685337Z 
+Build APK	Assemble APK	2026-10-16T08:29:42.6733667Z * What went wrong:
+Build APK	Assemble APK	2026-10-16T08:29:42.6733923Z 18 actionable tasks: 18 executed
+Build APK	Assemble APK	2026-10-16T08:29:42.6763715Z Execution failed for task ':app:buildCMakeRelease[arm64-v8a]'.
+Build APK	Assemble APK	2026-10-16T08:29:42.6794208Z > com.android.ide.common.process.ProcessException: ninja: Entering directory `/home/runner/work/lcs-recomp/lcs-recomp/android/app/.cxx/Release/3j5y2a41/arm64-v8a'
+Build APK	Assemble APK	2026-10-16T08:29:42.6823511Z   [0/2] Re-checking globbed directories...
+Build APK	Assemble APK	2026-10-16T08:29:42.6873734Z   [1/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/decoder.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.6903810Z   [2/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/deflate.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.6916473Z   [3/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/guest_memory.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.6924253Z   In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/guest_memory.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:42.6945078Z   /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:42.6963699Z           out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:42.6987392Z           ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7033551Z   1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7033948Z   [4/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/elf32.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7034561Z   In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/elf32.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:42.7035448Z   /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:42.7036270Z           out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:42.7036555Z           ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7036747Z   1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7037071Z   [5/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/sha256.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7037556Z   In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/sha256.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:42.7038384Z   /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:42.7039115Z           out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:42.7039366Z           ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7039559Z   1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7039896Z   [6/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/nid_registry.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7040413Z   In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/nid_registry.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:42.7041248Z   /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:42.7041963Z           out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:42.7042205Z           ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7042397Z   1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7042705Z   [7/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_lang.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7043343Z   [8/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/display_window.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7043820Z   [9/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/ge_gpu_backend_dx12.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7044334Z   [10/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/program_analysis.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7044893Z   [11/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/display_window_sdl.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7045420Z   [12/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_controls.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7045976Z   [13/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_audio_output.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7046813Z   [14/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_fps_overlay.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7047335Z   [15/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_frame_limit.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7047813Z   [16/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/runtime.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7048264Z   In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/runtime.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:42.7049006Z   /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:42.7049661Z           out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:42.7049891Z           ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7050066Z   1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7050303Z   [17/247] Linking CXX static library libpsprecomp_core.a
+Build APK	Assemble APK	2026-10-16T08:29:42.7050894Z   [18/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_ge_exec.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7051353Z   [19/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_menu.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7051823Z   [20/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_display_menu.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7052334Z   [21/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_media_decoder.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7052852Z   [22/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/ge_gpu_backend_vulkan.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7053509Z   [23/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/ge_renderer.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7053986Z   [24/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_runtime_log.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7054451Z   [25/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/main.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7054882Z   [26/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_sas.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7055349Z   [27/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/touch_controls.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7055805Z   FAILED: lcs/CMakeFiles/LCSNative.dir/host/touch_controls.cpp.o 
+Build APK	Assemble APK	2026-10-16T08:29:42.7059388Z   ccache /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --sysroot=/usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DLCSNative_EXPORTS -DLCS_VULKAN_GE_BACKEND=1 -I/home/runner/work/lcs-recomp/lcs-recomp/android/prebuilt -I/home/runner/work/lcs-recomp/lcs-recomp/android/dist/arm64-v8a/include -I/home/runner/work/lcs-recomp/lcs-recomp/lcs/host -I/home/runner/work/lcs-recomp/lcs-recomp/android/dist/arm64-v8a/include/SDL2 -I/home/runner/work/lcs-recomp/lcs-recomp/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O2 -O3 -DNDEBUG  -fPIC -std=c++20 -MD -MT lcs/CMakeFiles/LCSNative.dir/host/touch_controls.cpp.o -MF lcs/CMakeFiles/LCSNative.dir/host/touch_controls.cpp.o.d -o lcs/CMakeFiles/LCSNative.dir/host/touch_controls.cpp.o -c /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/touch_controls.cpp
+Build APK	Assemble APK	2026-10-16T08:29:42.7093750Z   /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/touch_controls.cpp:172:52: error: no matching function for call to 'clamp'
+Build APK	Assemble APK	2026-10-16T08:29:42.7094535Z           input.analog_x = static_cast<std::uint8_t>(std::clamp(128 + move_x * 127.0f, 0, 255));
+Build APK	Assemble APK	2026-10-16T08:29:42.7094949Z                                                      ^~~~~~~~~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7095849Z   /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__algorithm/clamp.h:38:1: note: candidate template ignored: deduced conflicting types for parameter '_Tp' ('float' vs. 'int')
+Build APK	Assemble APK	2026-10-16T08:29:42.7096749Z   clamp(const _Tp& __v, const _Tp& __lo, const _Tp& __hi)
+Build APK	Assemble APK	2026-10-16T08:29:42.7097041Z   ^
+Build APK	Assemble APK	2026-10-16T08:29:42.7097778Z   /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__algorithm/clamp.h:27:1: note: candidate function template not viable: requires 4 arguments, but 3 were provided
+Build APK	Assemble APK	2026-10-16T08:29:42.7098989Z   clamp(const _Tp& __v, const _Tp& __lo, const _Tp& __hi, _Compare __comp)
+Build APK	Assemble APK	2026-10-16T08:29:42.7099311Z   ^
+Build APK	Assemble APK	2026-10-16T08:29:42.7099750Z   /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/touch_controls.cpp:173:52: error: no matching function for call to 'clamp'
+Build APK	Assemble APK	2026-10-16T08:29:42.7100403Z           input.analog_y = static_cast<std::uint8_t>(std::clamp(128 + move_y * 127.0f, 0, 255));
+Build APK	Assemble APK	2026-10-16T08:29:42.7100812Z                                                      ^~~~~~~~~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7101677Z   /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__algorithm/clamp.h:38:1: note: candidate template ignored: deduced conflicting types for parameter '_Tp' ('float' vs. 'int')
+Build APK	Assemble APK	2026-10-16T08:29:42.7102727Z   clamp(const _Tp& __v, const _Tp& __lo, const _Tp& __hi)
+Build APK	Assemble APK	2026-10-16T08:29:42.7103015Z   ^
+Build APK	Assemble APK	2026-10-16T08:29:42.7103784Z   /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__algorithm/clamp.h:27:1: note: candidate function template not viable: requires 4 arguments, but 3 were provided
+Build APK	Assemble APK	2026-10-16T08:29:42.7104644Z   clamp(const _Tp& __v, const _Tp& __lo, const _Tp& __hi, _Compare __comp)
+Build APK	Assemble APK	2026-10-16T08:29:42.7104946Z   ^
+Build APK	Assemble APK	2026-10-16T08:29:42.7105101Z   2 errors generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7105413Z   [28/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_render_config.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7105917Z   [29/247] Building CXX object lcs/CMakeFiles/lcs_generated.dir/generated/generated_registry.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7106407Z   [30/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_profile.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7106787Z   FAILED: lcs/CMakeFiles/LCSNative.dir/host/lcs_profile.cpp.o 
+Build APK	Assemble APK	2026-10-16T08:29:42.7110229Z   ccache /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --sysroot=/usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DLCSNative_EXPORTS -DLCS_VULKAN_GE_BACKEND=1 -I/home/runner/work/lcs-recomp/lcs-recomp/android/prebuilt -I/home/runner/work/lcs-recomp/lcs-recomp/android/dist/arm64-v8a/include -I/home/runner/work/lcs-recomp/lcs-recomp/lcs/host -I/home/runner/work/lcs-recomp/lcs-recomp/android/dist/arm64-v8a/include/SDL2 -I/home/runner/work/lcs-recomp/lcs-recomp/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O2 -O3 -DNDEBUG  -fPIC -std=c++20 -MD -MT lcs/CMakeFiles/LCSNative.dir/host/lcs_profile.cpp.o -MF lcs/CMakeFiles/LCSNative.dir/host/lcs_profile.cpp.o.d -o lcs/CMakeFiles/LCSNative.dir/host/lcs_profile.cpp.o -c /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/lcs_profile.cpp
+Build APK	Assemble APK	2026-10-16T08:29:42.7114299Z   /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/lcs_profile.cpp:3052:51: error: no member named 'clock_cast' in namespace 'std::chrono'
+Build APK	Assemble APK	2026-10-16T08:29:42.7114985Z               const auto system_time = std::chrono::clock_cast<std::chrono::system_clock>(written);
+Build APK	Assemble APK	2026-10-16T08:29:42.7115386Z                                        ~~~~~~~~~~~~~^
+Build APK	Assemble APK	2026-10-16T08:29:42.7115933Z   /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/lcs_profile.cpp:3052:87: error: expected '(' for function-style cast or type construction
+Build APK	Assemble APK	2026-10-16T08:29:42.7116612Z               const auto system_time = std::chrono::clock_cast<std::chrono::system_clock>(written);
+Build APK	Assemble APK	2026-10-16T08:29:42.7117038Z                                                                ~~~~~~~~~~~~~~~~~~~~~~~~~^
+Build APK	Assemble APK	2026-10-16T08:29:42.7117330Z   2 errors generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7117705Z   [31/247] Building CXX object lcs/CMakeFiles/lcs_generated.dir/generated/generated_unit_0000.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7118298Z   [32/247] Building CXX object lcs/CMakeFiles/lcs_generated.dir/generated/generated_unit_0003.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7118907Z   ninja: build stopped: subcommand failed.
+Build APK	Assemble APK	2026-10-16T08:29:42.7119156Z   
+Build APK	Assemble APK	2026-10-16T08:29:42.7119358Z   C++ build system [build] failed while executing:
+Build APK	Assemble APK	2026-10-16T08:29:42.7119677Z       /usr/local/lib/android/sdk/cmake/3.22.1/bin/ninja \
+Build APK	Assemble APK	2026-10-16T08:29:42.7119955Z         -C \
+Build APK	Assemble APK	2026-10-16T08:29:42.7120296Z         /home/runner/work/lcs-recomp/lcs-recomp/android/app/.cxx/Release/3j5y2a41/arm64-v8a \
+Build APK	Assemble APK	2026-10-16T08:29:42.7120699Z         LCSNative
+Build APK	Assemble APK	2026-10-16T08:29:42.7120948Z     from /home/runner/work/lcs-recomp/lcs-recomp/android/app
+Build APK	Assemble APK	2026-10-16T08:29:42.7121170Z 
+Build APK	Assemble APK	2026-10-16T08:29:42.7121244Z * Try:
+Build APK	Assemble APK	2026-10-16T08:29:42.7121474Z > Run with --info or --debug option to get more log output.
+Build APK	Assemble APK	2026-10-16T08:29:42.7121787Z > Run with --scan to get full insights.
+Build APK	Assemble APK	2026-10-16T08:29:42.7122066Z > Get more help at https://help.gradle.org.
+Build APK	Assemble APK	2026-10-16T08:29:42.7122401Z 
+Build APK	Assemble APK	2026-10-16T08:29:42.7122476Z * Exception is:
+Build APK	Assemble APK	2026-10-16T08:29:42.7122900Z org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:buildCMakeRelease[arm64-v8a]'.
+Build APK	Assemble APK	2026-10-16T08:29:42.7128419Z 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:130)
+Build APK	Assemble APK	2026-10-16T08:29:42.7129143Z 	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:293)
+Build APK	Assemble APK	2026-10-16T08:29:42.7129807Z 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:128)
+Build APK	Assemble APK	2026-10-16T08:29:42.7130679Z 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:116)
+Build APK	Assemble APK	2026-10-16T08:29:42.7134108Z 	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+Build APK	Assemble APK	2026-10-16T08:29:42.7135051Z 	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+Build APK	Assemble APK	2026-10-16T08:29:42.7135647Z 	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+Build APK	Assemble APK	2026-10-16T08:29:42.7136142Z 	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+Build APK	Assemble APK	2026-10-16T08:29:42.7136617Z 	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+Build APK	Assemble APK	2026-10-16T08:29:42.7137095Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+Build APK	Assemble APK	2026-10-16T08:29:42.7137545Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+Build APK	Assemble APK	2026-10-16T08:29:42.7137980Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+Build APK	Assemble APK	2026-10-16T08:29:42.7138489Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+Build APK	Assemble APK	2026-10-16T08:29:42.7139069Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+Build APK	Assemble APK	2026-10-16T08:29:42.7139583Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+Build APK	Assemble APK	2026-10-16T08:29:42.7140028Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+Build APK	Assemble APK	2026-10-16T08:29:42.7140479Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+Build APK	Assemble APK	2026-10-16T08:29:42.7140927Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+Build APK	Assemble APK	2026-10-16T08:29:42.7141371Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+Build APK	Assemble APK	2026-10-16T08:29:42.7141816Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+Build APK	Assemble APK	2026-10-16T08:29:42.7142233Z 	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+Build APK	Assemble APK	2026-10-16T08:29:42.7142849Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+Build APK	Assemble APK	2026-10-16T08:29:42.7143545Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+Build APK	Assemble APK	2026-10-16T08:29:42.7144120Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+Build APK	Assemble APK	2026-10-16T08:29:42.7144639Z 	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+Build APK	Assemble APK	2026-10-16T08:29:42.7145131Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+Build APK	Assemble APK	2026-10-16T08:29:42.7145713Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+Build APK	Assemble APK	2026-10-16T08:29:42.7146292Z 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+Build APK	Assemble APK	2026-10-16T08:29:42.7146691Z 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+Build APK	Assemble APK	2026-10-16T08:29:42.7147099Z 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+Build APK	Assemble APK	2026-10-16T08:29:42.7147509Z 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
+Build APK	Assemble APK	2026-10-16T08:29:42.7148124Z Caused by: org.gradle.internal.UncheckedException: com.android.ide.common.process.ProcessException: ninja: Entering directory `/home/runner/work/lcs-recomp/lcs-recomp/android/app/.cxx/Release/3j5y2a41/arm64-v8a'
+Build APK	Assemble APK	2026-10-16T08:29:42.7148627Z [0/2] Re-checking globbed directories...
+Build APK	Assemble APK	2026-10-16T08:29:42.7148849Z [1/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/decoder.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7149118Z [2/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/deflate.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7149395Z [3/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/guest_memory.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7149691Z In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/guest_memory.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:42.7150188Z /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:42.7150609Z         out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:42.7150757Z         ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7150874Z 1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7151058Z [4/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/elf32.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7151329Z In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/elf32.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:42.7151798Z /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:42.7152216Z         out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:42.7152360Z         ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7152471Z 1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7152645Z [5/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/sha256.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7152917Z In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/sha256.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:42.7153554Z /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:42.7153960Z         out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:42.7154100Z         ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7154209Z 1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7154399Z [6/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/nid_registry.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7154693Z In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/nid_registry.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:42.7155173Z /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:42.7155682Z         out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:42.7155827Z         ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7155936Z 1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7156117Z [7/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_lang.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7156402Z [8/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/display_window.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7156696Z [9/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/ge_gpu_backend_dx12.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7157000Z [10/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/program_analysis.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7157299Z [11/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/display_window_sdl.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7157680Z [12/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_controls.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7157972Z [13/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_audio_output.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7158264Z [14/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_fps_overlay.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7158549Z [15/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_frame_limit.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7158826Z [16/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/runtime.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7159102Z In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/runtime.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:42.7159580Z /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:42.7159998Z         out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:42.7160141Z         ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7160259Z 1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7160409Z [17/247] Linking CXX static library libpsprecomp_core.a
+Build APK	Assemble APK	2026-10-16T08:29:42.7160649Z [18/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_ge_exec.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7160920Z [19/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_menu.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7161200Z [20/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_display_menu.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7161493Z [21/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_media_decoder.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7161803Z [22/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/ge_gpu_backend_vulkan.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7162100Z [23/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/ge_renderer.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7162377Z [24/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_runtime_log.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7162648Z [25/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/main.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7162907Z [26/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_sas.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7163701Z [27/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/touch_controls.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7163968Z FAILED: lcs/CMakeFiles/LCSNative.dir/host/touch_controls.cpp.o 
+Build APK	Assemble APK	2026-10-16T08:29:42.7166041Z ccache /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --sysroot=/usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DLCSNative_EXPORTS -DLCS_VULKAN_GE_BACKEND=1 -I/home/runner/work/lcs-recomp/lcs-recomp/android/prebuilt -I/home/runner/work/lcs-recomp/lcs-recomp/android/dist/arm64-v8a/include -I/home/runner/work/lcs-recomp/lcs-recomp/lcs/host -I/home/runner/work/lcs-recomp/lcs-recomp/android/dist/arm64-v8a/include/SDL2 -I/home/runner/work/lcs-recomp/lcs-recomp/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O2 -O3 -DNDEBUG  -fPIC -std=c++20 -MD -MT lcs/CMakeFiles/LCSNative.dir/host/touch_controls.cpp.o -MF lcs/CMakeFiles/LCSNative.dir/host/touch_controls.cpp.o.d -o lcs/CMakeFiles/LCSNative.dir/host/touch_controls.cpp.o -c /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/touch_controls.cpp
+Build APK	Assemble APK	2026-10-16T08:29:42.7168386Z /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/touch_controls.cpp:172:52: error: no matching function for call to 'clamp'
+Build APK	Assemble APK	2026-10-16T08:29:42.7168796Z         input.analog_x = static_cast<std::uint8_t>(std::clamp(128 + move_x * 127.0f, 0, 255));
+Build APK	Assemble APK	2026-10-16T08:29:42.7169041Z                                                    ^~~~~~~~~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7169552Z /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__algorithm/clamp.h:38:1: note: candidate template ignored: deduced conflicting types for parameter '_Tp' ('float' vs. 'int')
+Build APK	Assemble APK	2026-10-16T08:29:42.7170187Z clamp(const _Tp& __v, const _Tp& __lo, const _Tp& __hi)
+Build APK	Assemble APK	2026-10-16T08:29:42.7170358Z ^
+Build APK	Assemble APK	2026-10-16T08:29:42.7170784Z /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__algorithm/clamp.h:27:1: note: candidate function template not viable: requires 4 arguments, but 3 were provided
+Build APK	Assemble APK	2026-10-16T08:29:42.7171295Z clamp(const _Tp& __v, const _Tp& __lo, const _Tp& __hi, _Compare __comp)
+Build APK	Assemble APK	2026-10-16T08:29:42.7171489Z ^
+Build APK	Assemble APK	2026-10-16T08:29:42.7171738Z /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/touch_controls.cpp:173:52: error: no matching function for call to 'clamp'
+Build APK	Assemble APK	2026-10-16T08:29:42.7172114Z         input.analog_y = static_cast<std::uint8_t>(std::clamp(128 + move_y * 127.0f, 0, 255));
+Build APK	Assemble APK	2026-10-16T08:29:42.7172355Z                                                    ^~~~~~~~~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7172849Z /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__algorithm/clamp.h:38:1: note: candidate template ignored: deduced conflicting types for parameter '_Tp' ('float' vs. 'int')
+Build APK	Assemble APK	2026-10-16T08:29:42.7173478Z clamp(const _Tp& __v, const _Tp& __lo, const _Tp& __hi)
+Build APK	Assemble APK	2026-10-16T08:29:42.7173642Z ^
+Build APK	Assemble APK	2026-10-16T08:29:42.7174047Z /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__algorithm/clamp.h:27:1: note: candidate function template not viable: requires 4 arguments, but 3 were provided
+Build APK	Assemble APK	2026-10-16T08:29:42.7174546Z clamp(const _Tp& __v, const _Tp& __lo, const _Tp& __hi, _Compare __comp)
+Build APK	Assemble APK	2026-10-16T08:29:42.7174734Z ^
+Build APK	Assemble APK	2026-10-16T08:29:42.7174831Z 2 errors generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7175030Z [28/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_render_config.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7175358Z [29/247] Building CXX object lcs/CMakeFiles/lcs_generated.dir/generated/generated_registry.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7175668Z [30/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_profile.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7175931Z FAILED: lcs/CMakeFiles/LCSNative.dir/host/lcs_profile.cpp.o 
+Build APK	Assemble APK	2026-10-16T08:29:42.7178001Z ccache /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --sysroot=/usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DLCSNative_EXPORTS -DLCS_VULKAN_GE_BACKEND=1 -I/home/runner/work/lcs-recomp/lcs-recomp/android/prebuilt -I/home/runner/work/lcs-recomp/lcs-recomp/android/dist/arm64-v8a/include -I/home/runner/work/lcs-recomp/lcs-recomp/lcs/host -I/home/runner/work/lcs-recomp/lcs-recomp/android/dist/arm64-v8a/include/SDL2 -I/home/runner/work/lcs-recomp/lcs-recomp/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O2 -O3 -DNDEBUG  -fPIC -std=c++20 -MD -MT lcs/CMakeFiles/LCSNative.dir/host/lcs_profile.cpp.o -MF lcs/CMakeFiles/LCSNative.dir/host/lcs_profile.cpp.o.d -o lcs/CMakeFiles/LCSNative.dir/host/lcs_profile.cpp.o -c /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/lcs_profile.cpp
+Build APK	Assemble APK	2026-10-16T08:29:42.7180303Z /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/lcs_profile.cpp:3052:51: error: no member named 'clock_cast' in namespace 'std::chrono'
+Build APK	Assemble APK	2026-10-16T08:29:42.7180708Z             const auto system_time = std::chrono::clock_cast<std::chrono::system_clock>(written);
+Build APK	Assemble APK	2026-10-16T08:29:42.7180948Z                                      ~~~~~~~~~~~~~^
+Build APK	Assemble APK	2026-10-16T08:29:42.7181273Z /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/lcs_profile.cpp:3052:87: error: expected '(' for function-style cast or type construction
+Build APK	Assemble APK	2026-10-16T08:29:42.7181671Z             const auto system_time = std::chrono::clock_cast<std::chrono::system_clock>(written);
+Build APK	Assemble APK	2026-10-16T08:29:42.7181922Z                                                              ~~~~~~~~~~~~~~~~~~~~~~~~~^
+Build APK	Assemble APK	2026-10-16T08:29:42.7182100Z 2 errors generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7182313Z [31/247] Building CXX object lcs/CMakeFiles/lcs_generated.dir/generated/generated_unit_0000.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7182783Z [32/247] Building CXX object lcs/CMakeFiles/lcs_generated.dir/generated/generated_unit_0003.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7183038Z ninja: build stopped: subcommand failed.
+Build APK	Assemble APK	2026-10-16T08:29:42.7183141Z 
+Build APK	Assemble APK	2026-10-16T08:29:42.7183445Z C++ build system [build] failed while executing:
+Build APK	Assemble APK	2026-10-16T08:29:42.7183635Z     /usr/local/lib/android/sdk/cmake/3.22.1/bin/ninja \
+Build APK	Assemble APK	2026-10-16T08:29:42.7183799Z       -C \
+Build APK	Assemble APK	2026-10-16T08:29:42.7183999Z       /home/runner/work/lcs-recomp/lcs-recomp/android/app/.cxx/Release/3j5y2a41/arm64-v8a \
+Build APK	Assemble APK	2026-10-16T08:29:42.7184230Z       LCSNative
+Build APK	Assemble APK	2026-10-16T08:29:42.7184378Z   from /home/runner/work/lcs-recomp/lcs-recomp/android/app
+Build APK	Assemble APK	2026-10-16T08:29:42.7184690Z 	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:69)
+Build APK	Assemble APK	2026-10-16T08:29:42.7185091Z 	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:42)
+Build APK	Assemble APK	2026-10-16T08:29:42.7185429Z 	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:128)
+Build APK	Assemble APK	2026-10-16T08:29:42.7185791Z 	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
+Build APK	Assemble APK	2026-10-16T08:29:42.7186225Z 	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+Build APK	Assemble APK	2026-10-16T08:29:42.7186648Z 	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+Build APK	Assemble APK	2026-10-16T08:29:42.7187058Z 	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:244)
+Build APK	Assemble APK	2026-10-16T08:29:42.7187461Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+Build APK	Assemble APK	2026-10-16T08:29:42.7187913Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+Build APK	Assemble APK	2026-10-16T08:29:42.7188360Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+Build APK	Assemble APK	2026-10-16T08:29:42.7188804Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+Build APK	Assemble APK	2026-10-16T08:29:42.7189258Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+Build APK	Assemble APK	2026-10-16T08:29:42.7189712Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+Build APK	Assemble APK	2026-10-16T08:29:42.7190163Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+Build APK	Assemble APK	2026-10-16T08:29:42.7190581Z 	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:229)
+Build APK	Assemble APK	2026-10-16T08:29:42.7190980Z 	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:212)
+Build APK	Assemble APK	2026-10-16T08:29:42.7191424Z 	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:195)
+Build APK	Assemble APK	2026-10-16T08:29:42.7191850Z 	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:162)
+Build APK	Assemble APK	2026-10-16T08:29:42.7192216Z 	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
+Build APK	Assemble APK	2026-10-16T08:29:42.7192656Z 	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
+Build APK	Assemble APK	2026-10-16T08:29:42.7192983Z 	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
+Build APK	Assemble APK	2026-10-16T08:29:42.7193405Z 	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
+Build APK	Assemble APK	2026-10-16T08:29:42.7193842Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+Build APK	Assemble APK	2026-10-16T08:29:42.7194606Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+Build APK	Assemble APK	2026-10-16T08:29:42.7195118Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+Build APK	Assemble APK	2026-10-16T08:29:42.7195561Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+Build APK	Assemble APK	2026-10-16T08:29:42.7196111Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+Build APK	Assemble APK	2026-10-16T08:29:42.7196568Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+Build APK	Assemble APK	2026-10-16T08:29:42.7197013Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+Build APK	Assemble APK	2026-10-16T08:29:42.7197393Z 	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
+Build APK	Assemble APK	2026-10-16T08:29:42.7197717Z 	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
+Build APK	Assemble APK	2026-10-16T08:29:42.7198078Z 	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+Build APK	Assemble APK	2026-10-16T08:29:42.7198475Z 	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+Build APK	Assemble APK	2026-10-16T08:29:42.7198834Z 	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+Build APK	Assemble APK	2026-10-16T08:29:42.7199235Z 	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:50)
+Build APK	Assemble APK	2026-10-16T08:29:42.7199708Z 	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:28)
+Build APK	Assemble APK	2026-10-16T08:29:42.7200175Z 	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:67)
+Build APK	Assemble APK	2026-10-16T08:29:42.7200631Z 	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:37)
+Build APK	Assemble APK	2026-10-16T08:29:42.7201104Z 	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:61)
+Build APK	Assemble APK	2026-10-16T08:29:42.7201592Z 	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:26)
+Build APK	Assemble APK	2026-10-16T08:29:42.7202105Z 	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+Build APK	Assemble APK	2026-10-16T08:29:42.7202633Z 	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+Build APK	Assemble APK	2026-10-16T08:29:42.7203120Z 	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
+Build APK	Assemble APK	2026-10-16T08:29:42.7203665Z 	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
+Build APK	Assemble APK	2026-10-16T08:29:42.7204118Z 	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:189)
+Build APK	Assemble APK	2026-10-16T08:29:42.7204523Z 	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:75)
+Build APK	Assemble APK	2026-10-16T08:29:42.7204825Z 	at org.gradle.internal.Either$Right.fold(Either.java:175)
+Build APK	Assemble APK	2026-10-16T08:29:42.7205099Z 	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+Build APK	Assemble APK	2026-10-16T08:29:42.7205434Z 	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:73)
+Build APK	Assemble APK	2026-10-16T08:29:42.7205781Z 	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:48)
+Build APK	Assemble APK	2026-10-16T08:29:42.7206176Z 	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:46)
+Build APK	Assemble APK	2026-10-16T08:29:42.7206698Z 	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:35)
+Build APK	Assemble APK	2026-10-16T08:29:42.7207115Z 	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+Build APK	Assemble APK	2026-10-16T08:29:42.7207519Z 	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+Build APK	Assemble APK	2026-10-16T08:29:42.7207906Z 	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+Build APK	Assemble APK	2026-10-16T08:29:42.7208277Z 	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+Build APK	Assemble APK	2026-10-16T08:29:42.7208759Z 	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+Build APK	Assemble APK	2026-10-16T08:29:42.7209354Z 	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+Build APK	Assemble APK	2026-10-16T08:29:42.7210024Z 	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:49)
+Build APK	Assemble APK	2026-10-16T08:29:42.7210612Z 	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:27)
+Build APK	Assemble APK	2026-10-16T08:29:42.7211172Z 	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:71)
+Build APK	Assemble APK	2026-10-16T08:29:42.7211694Z 	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:39)
+Build APK	Assemble APK	2026-10-16T08:29:42.7212145Z 	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
+Build APK	Assemble APK	2026-10-16T08:29:42.7212532Z 	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
+Build APK	Assemble APK	2026-10-16T08:29:42.7212896Z 	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:105)
+Build APK	Assemble APK	2026-10-16T08:29:42.7213349Z 	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:54)
+Build APK	Assemble APK	2026-10-16T08:29:42.7213817Z 	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:64)
+Build APK	Assemble APK	2026-10-16T08:29:42.7214414Z 	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:43)
+Build APK	Assemble APK	2026-10-16T08:29:42.7214996Z 	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.executeWithNonEmptySources(AbstractSkipEmptyWorkStep.java:125)
+Build APK	Assemble APK	2026-10-16T08:29:42.7215510Z 	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:56)
+Build APK	Assemble APK	2026-10-16T08:29:42.7215964Z 	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:36)
+Build APK	Assemble APK	2026-10-16T08:29:42.7216478Z 	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+Build APK	Assemble APK	2026-10-16T08:29:42.7217023Z 	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+Build APK	Assemble APK	2026-10-16T08:29:42.7217527Z 	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+Build APK	Assemble APK	2026-10-16T08:29:42.7217994Z 	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:75)
+Build APK	Assemble APK	2026-10-16T08:29:42.7218421Z 	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:41)
+Build APK	Assemble APK	2026-10-16T08:29:42.7218883Z 	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$execute$0(AssignMutableWorkspaceStep.java:35)
+Build APK	Assemble APK	2026-10-16T08:29:42.7219323Z 	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:289)
+Build APK	Assemble APK	2026-10-16T08:29:42.7219748Z 	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:31)
+Build APK	Assemble APK	2026-10-16T08:29:42.7220214Z 	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:22)
+Build APK	Assemble APK	2026-10-16T08:29:42.7220726Z 	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+Build APK	Assemble APK	2026-10-16T08:29:42.7221117Z 	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+Build APK	Assemble APK	2026-10-16T08:29:42.7221609Z 	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+Build APK	Assemble APK	2026-10-16T08:29:42.7222186Z 	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+Build APK	Assemble APK	2026-10-16T08:29:42.7222745Z 	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+Build APK	Assemble APK	2026-10-16T08:29:42.7223328Z 	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+Build APK	Assemble APK	2026-10-16T08:29:42.7223788Z 	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+Build APK	Assemble APK	2026-10-16T08:29:42.7224142Z 	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:48)
+Build APK	Assemble APK	2026-10-16T08:29:42.7224474Z 	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:35)
+Build APK	Assemble APK	2026-10-16T08:29:42.7224849Z 	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:61)
+Build APK	Assemble APK	2026-10-16T08:29:42.7225322Z 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:127)
+Build APK	Assemble APK	2026-10-16T08:29:42.7225835Z 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:116)
+Build APK	Assemble APK	2026-10-16T08:29:42.7226343Z 	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+Build APK	Assemble APK	2026-10-16T08:29:42.7226877Z 	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+Build APK	Assemble APK	2026-10-16T08:29:42.7227413Z 	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+Build APK	Assemble APK	2026-10-16T08:29:42.7227901Z 	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+Build APK	Assemble APK	2026-10-16T08:29:42.7228366Z 	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+Build APK	Assemble APK	2026-10-16T08:29:42.7228838Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+Build APK	Assemble APK	2026-10-16T08:29:42.7229285Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+Build APK	Assemble APK	2026-10-16T08:29:42.7229720Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+Build APK	Assemble APK	2026-10-16T08:29:42.7230225Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+Build APK	Assemble APK	2026-10-16T08:29:42.7230798Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+Build APK	Assemble APK	2026-10-16T08:29:42.7231306Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+Build APK	Assemble APK	2026-10-16T08:29:42.7231750Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+Build APK	Assemble APK	2026-10-16T08:29:42.7232195Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+Build APK	Assemble APK	2026-10-16T08:29:42.7232641Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+Build APK	Assemble APK	2026-10-16T08:29:42.7233083Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+Build APK	Assemble APK	2026-10-16T08:29:42.7233632Z 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+Build APK	Assemble APK	2026-10-16T08:29:42.7234042Z 	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+Build APK	Assemble APK	2026-10-16T08:29:42.7234583Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+Build APK	Assemble APK	2026-10-16T08:29:42.7235119Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+Build APK	Assemble APK	2026-10-16T08:29:42.7235774Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+Build APK	Assemble APK	2026-10-16T08:29:42.7236299Z 	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+Build APK	Assemble APK	2026-10-16T08:29:42.7236792Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+Build APK	Assemble APK	2026-10-16T08:29:42.7237373Z 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+Build APK	Assemble APK	2026-10-16T08:29:42.7237955Z 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+Build APK	Assemble APK	2026-10-16T08:29:42.7238347Z 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+Build APK	Assemble APK	2026-10-16T08:29:42.7238753Z 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+Build APK	Assemble APK	2026-10-16T08:29:42.7239164Z 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
+Build APK	Assemble APK	2026-10-16T08:29:42.7239688Z Caused by: com.android.ide.common.process.ProcessException: ninja: Entering directory `/home/runner/work/lcs-recomp/lcs-recomp/android/app/.cxx/Release/3j5y2a41/arm64-v8a'
+Build APK	Assemble APK	2026-10-16T08:29:42.7240102Z [0/2] Re-checking globbed directories...
+Build APK	Assemble APK	2026-10-16T08:29:42.7240317Z [1/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/decoder.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7240584Z [2/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/deflate.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7240860Z [3/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/guest_memory.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7241156Z In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/guest_memory.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:42.7241639Z /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:42.7242051Z         out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:42.7242197Z         ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7242315Z 1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7242492Z [4/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/elf32.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7242758Z In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/elf32.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:42.7243328Z /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:42.7243742Z         out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:42.7243886Z         ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7243996Z 1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7244168Z [5/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/sha256.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7244436Z In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/sha256.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:42.7244902Z /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:42.7245310Z         out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:42.7245448Z         ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7245559Z 1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7245745Z [6/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/nid_registry.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7246035Z In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/nid_registry.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:42.7246513Z /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:42.7247004Z         out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:42.7247145Z         ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7247252Z 1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7247434Z [7/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_lang.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7247710Z [8/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/display_window.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7248001Z [9/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/ge_gpu_backend_dx12.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7248301Z [10/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/program_analysis.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7248599Z [11/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/display_window_sdl.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7248968Z [12/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_controls.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7249254Z [13/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_audio_output.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7249539Z [14/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_fps_overlay.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7249821Z [15/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_frame_limit.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7250092Z [16/247] Building CXX object CMakeFiles/psprecomp_core.dir/src/runtime.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7250363Z In file included from /home/runner/work/lcs-recomp/lcs-recomp/src/runtime.cpp:2:
+Build APK	Assemble APK	2026-10-16T08:29:42.7250827Z /home/runner/work/lcs-recomp/lcs-recomp/include/psprecomp/common.hpp:18:15: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+Build APK	Assemble APK	2026-10-16T08:29:42.7251231Z         out[9 - i] = digits[value & 0xFu];
+Build APK	Assemble APK	2026-10-16T08:29:42.7251370Z         ~~~ ~~^~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7251481Z 1 warning generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7251630Z [17/247] Linking CXX static library libpsprecomp_core.a
+Build APK	Assemble APK	2026-10-16T08:29:42.7251862Z [18/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_ge_exec.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7252129Z [19/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_menu.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7252400Z [20/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_display_menu.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7252689Z [21/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_media_decoder.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7252991Z [22/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/ge_gpu_backend_vulkan.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7253398Z [23/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/ge_renderer.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7253674Z [24/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_runtime_log.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7253939Z [25/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/main.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7254194Z [26/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_sas.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7254467Z [27/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/touch_controls.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7254730Z FAILED: lcs/CMakeFiles/LCSNative.dir/host/touch_controls.cpp.o 
+Build APK	Assemble APK	2026-10-16T08:29:42.7256764Z ccache /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --sysroot=/usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DLCSNative_EXPORTS -DLCS_VULKAN_GE_BACKEND=1 -I/home/runner/work/lcs-recomp/lcs-recomp/android/prebuilt -I/home/runner/work/lcs-recomp/lcs-recomp/android/dist/arm64-v8a/include -I/home/runner/work/lcs-recomp/lcs-recomp/lcs/host -I/home/runner/work/lcs-recomp/lcs-recomp/android/dist/arm64-v8a/include/SDL2 -I/home/runner/work/lcs-recomp/lcs-recomp/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O2 -O3 -DNDEBUG  -fPIC -std=c++20 -MD -MT lcs/CMakeFiles/LCSNative.dir/host/touch_controls.cpp.o -MF lcs/CMakeFiles/LCSNative.dir/host/touch_controls.cpp.o.d -o lcs/CMakeFiles/LCSNative.dir/host/touch_controls.cpp.o -c /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/touch_controls.cpp
+Build APK	Assemble APK	2026-10-16T08:29:42.7259073Z /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/touch_controls.cpp:172:52: error: no matching function for call to 'clamp'
+Build APK	Assemble APK	2026-10-16T08:29:42.7259454Z         input.analog_x = static_cast<std::uint8_t>(std::clamp(128 + move_x * 127.0f, 0, 255));
+Build APK	Assemble APK	2026-10-16T08:29:42.7259693Z                                                    ^~~~~~~~~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7260198Z /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__algorithm/clamp.h:38:1: note: candidate template ignored: deduced conflicting types for parameter '_Tp' ('float' vs. 'int')
+Build APK	Assemble APK	2026-10-16T08:29:42.7260708Z clamp(const _Tp& __v, const _Tp& __lo, const _Tp& __hi)
+Build APK	Assemble APK	2026-10-16T08:29:42.7260951Z ^
+Build APK	Assemble APK	2026-10-16T08:29:42.7261361Z /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__algorithm/clamp.h:27:1: note: candidate function template not viable: requires 4 arguments, but 3 were provided
+Build APK	Assemble APK	2026-10-16T08:29:42.7261865Z clamp(const _Tp& __v, const _Tp& __lo, const _Tp& __hi, _Compare __comp)
+Build APK	Assemble APK	2026-10-16T08:29:42.7262053Z ^
+Build APK	Assemble APK	2026-10-16T08:29:42.7262297Z /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/touch_controls.cpp:173:52: error: no matching function for call to 'clamp'
+Build APK	Assemble APK	2026-10-16T08:29:42.7262666Z         input.analog_y = static_cast<std::uint8_t>(std::clamp(128 + move_y * 127.0f, 0, 255));
+Build APK	Assemble APK	2026-10-16T08:29:42.7262901Z                                                    ^~~~~~~~~~
+Build APK	Assemble APK	2026-10-16T08:29:42.7263508Z /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__algorithm/clamp.h:38:1: note: candidate template ignored: deduced conflicting types for parameter '_Tp' ('float' vs. 'int')
+Build APK	Assemble APK	2026-10-16T08:29:42.7264012Z clamp(const _Tp& __v, const _Tp& __lo, const _Tp& __hi)
+Build APK	Assemble APK	2026-10-16T08:29:42.7264176Z ^
+Build APK	Assemble APK	2026-10-16T08:29:42.7264582Z /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__algorithm/clamp.h:27:1: note: candidate function template not viable: requires 4 arguments, but 3 were provided
+Build APK	Assemble APK	2026-10-16T08:29:42.7265079Z clamp(const _Tp& __v, const _Tp& __lo, const _Tp& __hi, _Compare __comp)
+Build APK	Assemble APK	2026-10-16T08:29:42.7265268Z ^
+Build APK	Assemble APK	2026-10-16T08:29:42.7265363Z 2 errors generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7265557Z [28/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_render_config.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7265877Z [29/247] Building CXX object lcs/CMakeFiles/lcs_generated.dir/generated/generated_registry.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7266182Z [30/247] Building CXX object lcs/CMakeFiles/LCSNative.dir/host/lcs_profile.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7266434Z FAILED: lcs/CMakeFiles/LCSNative.dir/host/lcs_profile.cpp.o 
+Build APK	Assemble APK	2026-10-16T08:29:42.7268432Z ccache /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --sysroot=/usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DLCSNative_EXPORTS -DLCS_VULKAN_GE_BACKEND=1 -I/home/runner/work/lcs-recomp/lcs-recomp/android/prebuilt -I/home/runner/work/lcs-recomp/lcs-recomp/android/dist/arm64-v8a/include -I/home/runner/work/lcs-recomp/lcs-recomp/lcs/host -I/home/runner/work/lcs-recomp/lcs-recomp/android/dist/arm64-v8a/include/SDL2 -I/home/runner/work/lcs-recomp/lcs-recomp/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O2 -O3 -DNDEBUG  -fPIC -std=c++20 -MD -MT lcs/CMakeFiles/LCSNative.dir/host/lcs_profile.cpp.o -MF lcs/CMakeFiles/LCSNative.dir/host/lcs_profile.cpp.o.d -o lcs/CMakeFiles/LCSNative.dir/host/lcs_profile.cpp.o -c /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/lcs_profile.cpp
+Build APK	Assemble APK	2026-10-16T08:29:42.7270618Z /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/lcs_profile.cpp:3052:51: error: no member named 'clock_cast' in namespace 'std::chrono'
+Build APK	Assemble APK	2026-10-16T08:29:42.7271102Z             const auto system_time = std::chrono::clock_cast<std::chrono::system_clock>(written);
+Build APK	Assemble APK	2026-10-16T08:29:42.7271339Z                                      ~~~~~~~~~~~~~^
+Build APK	Assemble APK	2026-10-16T08:29:42.7271684Z /home/runner/work/lcs-recomp/lcs-recomp/lcs/host/lcs_profile.cpp:3052:87: error: expected '(' for function-style cast or type construction
+Build APK	Assemble APK	2026-10-16T08:29:42.7272140Z             const auto system_time = std::chrono::clock_cast<std::chrono::system_clock>(written);
+Build APK	Assemble APK	2026-10-16T08:29:42.7272388Z                                                              ~~~~~~~~~~~~~~~~~~~~~~~~~^
+Build APK	Assemble APK	2026-10-16T08:29:42.7272560Z 2 errors generated.
+Build APK	Assemble APK	2026-10-16T08:29:42.7272771Z [31/247] Building CXX object lcs/CMakeFiles/lcs_generated.dir/generated/generated_unit_0000.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7273379Z [32/247] Building CXX object lcs/CMakeFiles/lcs_generated.dir/generated/generated_unit_0003.cpp.o
+Build APK	Assemble APK	2026-10-16T08:29:42.7273649Z ninja: build stopped: subcommand failed.
+Build APK	Assemble APK	2026-10-16T08:29:42.7273755Z 
+Build APK	Assemble APK	2026-10-16T08:29:42.7273824Z C++ build system [build] failed while executing:
+Build APK	Assemble APK	2026-10-16T08:29:42.7274009Z     /usr/local/lib/android/sdk/cmake/3.22.1/bin/ninja \
+Build APK	Assemble APK	2026-10-16T08:29:42.7274170Z       -C \
+Build APK	Assemble APK	2026-10-16T08:29:42.7274365Z       /home/runner/work/lcs-recomp/lcs-recomp/android/app/.cxx/Release/3j5y2a41/arm64-v8a \
+Build APK	Assemble APK	2026-10-16T08:29:42.7274593Z       LCSNative
+Build APK	Assemble APK	2026-10-16T08:29:42.7274741Z   from /home/runner/work/lcs-recomp/lcs-recomp/android/app
+Build APK	Assemble APK	2026-10-16T08:29:42.7275049Z 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.execute(ExecuteProcess.kt:288)
+Build APK	Assemble APK	2026-10-16T08:29:42.7275480Z 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt$executeProcess$1.invoke(ExecuteProcess.kt:108)
+Build APK	Assemble APK	2026-10-16T08:29:42.7275933Z 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt$executeProcess$1.invoke(ExecuteProcess.kt:106)
+Build APK	Assemble APK	2026-10-16T08:29:42.7276368Z 	at com.android.build.gradle.internal.cxx.timing.TimingEnvironmentKt.time(TimingEnvironment.kt:32)
+Build APK	Assemble APK	2026-10-16T08:29:42.7276790Z 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess(ExecuteProcess.kt:106)
+Build APK	Assemble APK	2026-10-16T08:29:42.7277246Z 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess$default(ExecuteProcess.kt:85)
+Build APK	Assemble APK	2026-10-16T08:29:42.7277713Z 	at com.android.build.gradle.internal.cxx.build.CxxRegularBuilder.executeProcessBatch(CxxRegularBuilder.kt:332)
+Build APK	Assemble APK	2026-10-16T08:29:42.7278148Z 	at com.android.build.gradle.internal.cxx.build.CxxRegularBuilder.build(CxxRegularBuilder.kt:129)
+Build APK	Assemble APK	2026-10-16T08:29:42.7278582Z 	at com.android.build.gradle.tasks.ExternalNativeBuildTask$doTaskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:70)
+Build APK	Assemble APK	2026-10-16T08:29:42.7278978Z 	at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
+Build APK	Assemble APK	2026-10-16T08:29:42.7279350Z 	at com.android.build.gradle.tasks.ExternalNativeBuildTask.doTaskAction(ExternalNativeBuildTask.kt:145)
+Build APK	Assemble APK	2026-10-16T08:29:42.7279806Z 	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask$taskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:65)
+Build APK	Assemble APK	2026-10-16T08:29:42.7280206Z 	at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
+Build APK	Assemble APK	2026-10-16T08:29:42.7280559Z 	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask.taskAction(UnsafeOutputsTask.kt:63)
+Build APK	Assemble APK	2026-10-16T08:29:42.7280925Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+Build APK	Assemble APK	2026-10-16T08:29:42.7281287Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+Build APK	Assemble APK	2026-10-16T08:29:42.7281712Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+Build APK	Assemble APK	2026-10-16T08:29:42.7282075Z 	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+Build APK	Assemble APK	2026-10-16T08:29:42.7282281Z 	... 116 more
+Build APK	Assemble APK	2026-10-16T08:29:42.7282792Z Caused by: com.android.ide.common.process.ProcessException: Error while executing process /usr/local/lib/android/sdk/cmake/3.22.1/bin/ninja with arguments {-C /home/runner/work/lcs-recomp/lcs-recomp/android/app/.cxx/Release/3j5y2a41/arm64-v8a LCSNative}
+Build APK	Assemble APK	2026-10-16T08:29:42.7283736Z 	at com.android.build.gradle.internal.process.GradleProcessResult.buildProcessException(GradleProcessResult.java:73)
+Build APK	Assemble APK	2026-10-16T08:29:42.7284241Z 	at com.android.build.gradle.internal.process.GradleProcessResult.assertNormalExitValue(GradleProcessResult.java:48)
+Build APK	Assemble APK	2026-10-16T08:29:42.7284693Z 	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.execute(ExecuteProcess.kt:277)
+Build APK	Assemble APK	2026-10-16T08:29:42.7284963Z 	... 133 more
+Build APK	Assemble APK	2026-10-16T08:29:42.7285293Z Caused by: org.gradle.process.internal.ExecException: Process 'command '/usr/local/lib/android/sdk/cmake/3.22.1/bin/ninja'' finished with non-zero exit value 1
+Build APK	Assemble APK	2026-10-16T08:29:42.7285810Z 	at org.gradle.process.internal.DefaultExecHandle$ExecResultImpl.assertNormalExitValue(DefaultExecHandle.java:442)
+Build APK	Assemble APK	2026-10-16T08:29:42.7286408Z 	at com.android.build.gradle.internal.process.GradleProcessResult.assertNormalExitValue(GradleProcessResult.java:46)
+Build APK	Assemble APK	2026-10-16T08:29:42.7286727Z 	... 134 more
+Build APK	Assemble APK	2026-10-16T08:29:42.7286790Z 
+Build APK	Assemble APK	2026-10-16T08:29:42.7286794Z 
+Build APK	Assemble APK	2026-10-16T08:29:42.7286839Z BUILD FAILED in 53s
+Build APK	Assemble APK	2026-10-16T08:29:42.8128644Z ##[error]Process completed with exit code 1.

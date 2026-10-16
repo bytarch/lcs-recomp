@@ -169,8 +169,10 @@ void lcs_touch_merge_input(HostInputState &input) noexcept {
     // Sticks only contribute when the keyboard/pad is idle, so both can be used
     // on the same device.
     if (input.analog_x == 128u && input.analog_y == 128u && (move_x != 0.0f || move_y != 0.0f)) {
-        input.analog_x = static_cast<std::uint8_t>(std::clamp(128 + move_x * 127.0f, 0, 255));
-        input.analog_y = static_cast<std::uint8_t>(std::clamp(128 + move_y * 127.0f, 0, 255));
+        const float stick_x = 128.0f + move_x * 127.0f;
+        const float stick_y = 128.0f + move_y * 127.0f;
+        input.analog_x = static_cast<std::uint8_t>(std::clamp(stick_x, 0.0f, 255.0f));
+        input.analog_y = static_cast<std::uint8_t>(std::clamp(stick_y, 0.0f, 255.0f));
     }
     if (input.camera_x == 0 && input.camera_y == 0 && (camera_x != 0.0f || camera_y != 0.0f)) {
         input.camera_x = static_cast<int>(camera_x * 127.0f);
