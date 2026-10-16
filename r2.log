@@ -1,0 +1,105 @@
+Build APK	Configure check	﻿2026-10-16T07:28:02.3934981Z ##[group]Run mkdir -p android/dist/arm64-v8a/include android/dist/arm64-v8a/lib android/prebuilt
+Build APK	Configure check	2026-10-16T07:28:02.3935719Z [36;1mmkdir -p android/dist/arm64-v8a/include android/dist/arm64-v8a/lib android/prebuilt[0m
+Build APK	Configure check	2026-10-16T07:28:02.3936255Z [36;1mcmake -S . -B build-configure-check -G Ninja \[0m
+Build APK	Configure check	2026-10-16T07:28:02.3936745Z [36;1m  -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake" \[0m
+Build APK	Configure check	2026-10-16T07:28:02.3937203Z [36;1m  -DANDROID_ABI=arm64-v8a \[0m
+Build APK	Configure check	2026-10-16T07:28:02.3937500Z [36;1m  -DANDROID_PLATFORM=android-21 \[0m
+Build APK	Configure check	2026-10-16T07:28:02.3937803Z [36;1m  -DANDROID_STL=c++_shared \[0m
+Build APK	Configure check	2026-10-16T07:28:02.3938270Z [36;1m  -DCMAKE_BUILD_TYPE=Release[0m
+Build APK	Configure check	2026-10-16T07:28:02.3938604Z [36;1mcd android && gradle --no-daemon -q tasks > /dev/null[0m
+Build APK	Configure check	2026-10-16T07:28:02.4006520Z shell: /usr/bin/bash -e {0}
+Build APK	Configure check	2026-10-16T07:28:02.4006809Z env:
+Build APK	Configure check	2026-10-16T07:28:02.4007018Z   ANDROID_NDK_VERSION: 26.1.10909125
+Build APK	Configure check	2026-10-16T07:28:02.4007285Z   GRADLE_VERSION: 8.9
+Build APK	Configure check	2026-10-16T07:28:02.4007839Z   ANDROID_NDK_HOME: /usr/local/lib/android/sdk/ndk/26.1.10909125
+Build APK	Configure check	2026-10-16T07:28:02.4008568Z   CMAKE_BUILD_PARALLEL_LEVEL: 4
+Build APK	Configure check	2026-10-16T07:28:02.4008823Z ##[endgroup]
+Build APK	Configure check	2026-10-16T07:28:02.4968849Z CMake Deprecation Warning at /usr/local/lib/android/sdk/ndk/26.1.10909125/build/cmake/android.toolchain.cmake:34 (cmake_minimum_required):
+Build APK	Configure check	2026-10-16T07:28:02.4971094Z   Compatibility with CMake < 3.10 will be removed from a future version of
+Build APK	Configure check	2026-10-16T07:28:02.4972163Z   CMake.
+Build APK	Configure check	2026-10-16T07:28:02.4972527Z 
+Build APK	Configure check	2026-10-16T07:28:02.4972893Z   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+Build APK	Configure check	2026-10-16T07:28:02.4973540Z   to tell CMake that the project requires at least <min> but has been updated
+Build APK	Configure check	2026-10-16T07:28:02.4974069Z   to work with policies introduced by <max> or earlier.
+Build APK	Configure check	2026-10-16T07:28:02.4974459Z Call Stack (most recent call first):
+Build APK	Configure check	2026-10-16T07:28:02.4974929Z   /usr/local/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:146 (include)
+Build APK	Configure check	2026-10-16T07:28:02.4975431Z   CMakeLists.txt:2 (project)
+Build APK	Configure check	2026-10-16T07:28:02.4975725Z 
+Build APK	Configure check	2026-10-16T07:28:02.4975733Z 
+Build APK	Configure check	2026-10-16T07:28:02.4976622Z CMake Deprecation Warning at /usr/local/lib/android/sdk/ndk/26.1.10909125/build/cmake/android-legacy.toolchain.cmake:34 (cmake_minimum_required):
+Build APK	Configure check	2026-10-16T07:28:02.4977655Z   Compatibility with CMake < 3.10 will be removed from a future version of
+Build APK	Configure check	2026-10-16T07:28:02.4978421Z   CMake.
+Build APK	Configure check	2026-10-16T07:28:02.4978561Z 
+Build APK	Configure check	2026-10-16T07:28:02.4978816Z   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+Build APK	Configure check	2026-10-16T07:28:02.4979467Z   to tell CMake that the project requires at least <min> but has been updated
+Build APK	Configure check	2026-10-16T07:28:02.4980024Z   to work with policies introduced by <max> or earlier.
+Build APK	Configure check	2026-10-16T07:28:02.4980589Z Call Stack (most recent call first):
+Build APK	Configure check	2026-10-16T07:28:02.4981164Z   /usr/local/lib/android/sdk/ndk/26.1.10909125/build/cmake/android.toolchain.cmake:54 (include)
+Build APK	Configure check	2026-10-16T07:28:02.4981926Z   /usr/local/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:146 (include)
+Build APK	Configure check	2026-10-16T07:28:02.4982465Z   CMakeLists.txt:2 (project)
+Build APK	Configure check	2026-10-16T07:28:02.4982663Z 
+Build APK	Configure check	2026-10-16T07:28:02.4982673Z 
+Build APK	Configure check	2026-10-16T07:28:02.5370509Z CMake Deprecation Warning at /usr/local/lib/android/sdk/ndk/26.1.10909125/build/cmake/android.toolchain.cmake:34 (cmake_minimum_required):
+Build APK	Configure check	2026-10-16T07:28:02.5371767Z   Compatibility with CMake < 3.10 will be removed from a future version of
+Build APK	Configure check	2026-10-16T07:28:02.5372255Z   CMake.
+Build APK	Configure check	2026-10-16T07:28:02.5372394Z 
+Build APK	Configure check	2026-10-16T07:28:02.5372649Z   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+Build APK	Configure check	2026-10-16T07:28:02.5373443Z   to tell CMake that the project requires at least <min> but has been updated
+Build APK	Configure check	2026-10-16T07:28:02.5374010Z   to work with policies introduced by <max> or earlier.
+Build APK	Configure check	2026-10-16T07:28:02.5374428Z Call Stack (most recent call first):
+Build APK	Configure check	2026-10-16T07:28:02.5374925Z   build-configure-check/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+Build APK	Configure check	2026-10-16T07:28:02.5375433Z   CMakeLists.txt:2 (project)
+Build APK	Configure check	2026-10-16T07:28:02.5375635Z 
+Build APK	Configure check	2026-10-16T07:28:02.5375846Z 
+Build APK	Configure check	2026-10-16T07:28:02.7510699Z -- The CXX compiler identification is Clang 17.0.2
+Build APK	Configure check	2026-10-16T07:28:02.8045343Z -- Detecting CXX compiler ABI info
+Build APK	Configure check	2026-10-16T07:28:02.8067135Z CMake Deprecation Warning at /usr/local/lib/android/sdk/ndk/26.1.10909125/build/cmake/android.toolchain.cmake:34 (cmake_minimum_required):
+Build APK	Configure check	2026-10-16T07:28:02.8068640Z   Compatibility with CMake < 3.10 will be removed from a future version of
+Build APK	Configure check	2026-10-16T07:28:02.8069202Z   CMake.
+Build APK	Configure check	2026-10-16T07:28:02.8069361Z 
+Build APK	Configure check	2026-10-16T07:28:02.8069655Z   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+Build APK	Configure check	2026-10-16T07:28:02.8070390Z   to tell CMake that the project requires at least <min> but has been updated
+Build APK	Configure check	2026-10-16T07:28:02.8071022Z   to work with policies introduced by <max> or earlier.
+Build APK	Configure check	2026-10-16T07:28:02.8071489Z Call Stack (most recent call first):
+Build APK	Configure check	2026-10-16T07:28:02.8072255Z   /home/runner/work/lcs-recomp/lcs-recomp/build-configure-check/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+Build APK	Configure check	2026-10-16T07:28:02.8073986Z   /home/runner/work/lcs-recomp/lcs-recomp/build-configure-check/CMakeFiles/CMakeScratch/TryCompile-YFhDM4/CMakeLists.txt:4 (project)
+Build APK	Configure check	2026-10-16T07:28:02.8074903Z 
+Build APK	Configure check	2026-10-16T07:28:02.8074909Z 
+Build APK	Configure check	2026-10-16T07:28:02.8075597Z CMake Deprecation Warning at /usr/local/lib/android/sdk/ndk/26.1.10909125/build/cmake/android-legacy.toolchain.cmake:34 (cmake_minimum_required):
+Build APK	Configure check	2026-10-16T07:28:02.8076694Z   Compatibility with CMake < 3.10 will be removed from a future version of
+Build APK	Configure check	2026-10-16T07:28:02.8077240Z   CMake.
+Build APK	Configure check	2026-10-16T07:28:02.8077383Z 
+Build APK	Configure check	2026-10-16T07:28:02.8077671Z   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+Build APK	Configure check	2026-10-16T07:28:02.8078620Z   to tell CMake that the project requires at least <min> but has been updated
+Build APK	Configure check	2026-10-16T07:28:02.8079253Z   to work with policies introduced by <max> or earlier.
+Build APK	Configure check	2026-10-16T07:28:02.8079730Z Call Stack (most recent call first):
+Build APK	Configure check	2026-10-16T07:28:02.8080371Z   /usr/local/lib/android/sdk/ndk/26.1.10909125/build/cmake/android.toolchain.cmake:54 (include)
+Build APK	Configure check	2026-10-16T07:28:02.8081413Z   /home/runner/work/lcs-recomp/lcs-recomp/build-configure-check/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+Build APK	Configure check	2026-10-16T07:28:02.8082668Z   /home/runner/work/lcs-recomp/lcs-recomp/build-configure-check/CMakeFiles/CMakeScratch/TryCompile-YFhDM4/CMakeLists.txt:4 (project)
+Build APK	Configure check	2026-10-16T07:28:02.8083448Z 
+Build APK	Configure check	2026-10-16T07:28:02.8083453Z 
+Build APK	Configure check	2026-10-16T07:28:02.9433865Z -- Detecting CXX compiler ABI info - done
+Build APK	Configure check	2026-10-16T07:28:02.9611519Z -- Check for working CXX compiler: /usr/local/lib/android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ - skipped
+Build APK	Configure check	2026-10-16T07:28:02.9618832Z -- Detecting CXX compile features
+Build APK	Configure check	2026-10-16T07:28:02.9635377Z -- Detecting CXX compile features - done
+Build APK	Configure check	2026-10-16T07:28:03.0160886Z -- Configuring done (0.5s)
+Build APK	Configure check	2026-10-16T07:28:03.0425569Z -- Generating done (0.0s)
+Build APK	Configure check	2026-10-16T07:28:03.0430186Z -- Build files have been written to: /home/runner/work/lcs-recomp/lcs-recomp/build-configure-check
+Build APK	Configure check	2026-10-16T07:28:30.8670651Z 
+Build APK	Configure check	2026-10-16T07:28:30.8719227Z FAILURE: Build failed with an exception.
+Build APK	Configure check	2026-10-16T07:28:30.8738658Z 
+Build APK	Configure check	2026-10-16T07:28:30.8739085Z * Where:
+Build APK	Configure check	2026-10-16T07:28:30.8739767Z Build file '/home/runner/work/lcs-recomp/lcs-recomp/android/app/build.gradle' line: 22
+Build APK	Configure check	2026-10-16T07:28:30.8740890Z 
+Build APK	Configure check	2026-10-16T07:28:30.8741046Z * What went wrong:
+Build APK	Configure check	2026-10-16T07:28:30.8741469Z A problem occurred evaluating project ':app'.
+Build APK	Configure check	2026-10-16T07:28:30.8742717Z > Could not find method abiFilters() for arguments [[arm64-v8a, armeabi-v7a, x86_64]] on object of type com.android.build.gradle.internal.dsl.NdkOptions.
+Build APK	Configure check	2026-10-16T07:28:30.8768750Z 
+Build APK	Configure check	2026-10-16T07:28:30.8792111Z * Try:
+Build APK	Configure check	2026-10-16T07:28:30.8808962Z > Run with --stacktrace option to get the stack trace.
+Build APK	Configure check	2026-10-16T07:28:30.8809713Z > Run with --info or --debug option to get more log output.
+Build APK	Configure check	2026-10-16T07:28:30.8810322Z > Run with --scan to get full insights.
+Build APK	Configure check	2026-10-16T07:28:30.8810856Z > Get more help at https://help.gradle.org.
+Build APK	Configure check	2026-10-16T07:28:30.8811227Z 
+Build APK	Configure check	2026-10-16T07:28:30.8811913Z BUILD FAILED in 27s
+Build APK	Configure check	2026-10-16T07:28:31.1654482Z ##[error]Process completed with exit code 1.

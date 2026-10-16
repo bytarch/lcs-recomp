@@ -19,7 +19,7 @@ android {
         versionName '1.0'
 
         ndk {
-            abiFilters abis
+            abiFilters.addAll(abis)
         }
 
         externalNativeBuild {
