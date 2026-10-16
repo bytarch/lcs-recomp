@@ -82,7 +82,10 @@ jobs:
         working-directory: android
         env:
           GRADLE_OPTS: -Dorg.gradle.jvmargs=-Xmx4g
-        run: gradle --no-daemon --stacktrace -PuseCcache=true assembleRelease
+          BUILD_ABIS: ${{ inputs.abis || 'arm64-v8a armeabi-v7a x86_64' }}
+        run: |
+          gradle --no-daemon --stacktrace -PuseCcache=true \
+            -Pabis="${BUILD_ABIS// /,}" assembleRelease
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
