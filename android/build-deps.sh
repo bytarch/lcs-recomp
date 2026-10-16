@@ -21,6 +21,9 @@ case "$ABI" in
 esac
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+mkdir -p "$OUT"
+# Absolute: the FFmpeg step runs from inside its build directory.
+OUT="$(cd "$OUT" && pwd)"
 # Build trees live outside the staged prefix so the CI cache only keeps the
 # artifacts that Gradle actually consumes.
 WORK="${ROOT}/android/.deps-work/${ABI}"
