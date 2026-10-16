@@ -3049,16 +3049,19 @@ void install_profile(psprecomp::Runtime &runtime, std::uint32_t user_arena_start
             rt.memory().store32(stat_address + 0x08u, static_cast<std::uint32_t>(size));
             rt.memory().store32(stat_address + 0x0Cu, static_cast<std::uint32_t>(size >> 32u));
             const auto written = std::filesystem::last_write_time(native, error);
+            std::time_t seconds = 0;
 #if defined(__cpp_lib_chrono_clock_cast)
-            const auto system_time = std::chrono::clock_cast<std::chrono::system_clock>(written);
+            seconds = std::chrono::system_clock::to_time_t(
+                std::chrono::clock_cast<std::chrono::system_clock>(written));
 #else
-            // libc++ (the Android NDK) has no <chrono> clock_cast. On POSIX its
-            // file_clock already counts from the system clock epoch, so only
-            // the duration has to be converted.
-            const std::chrono::system_clock::time_point system_time{
-                std::chrono::time_point_cast<std::chrono::system_clock::duration>(written)};
+            // libc++ (the Android NDK) has no <chrono> clock_cast, and its
+            // file_clock duration does not convert to the system clock's.
+            // Both count POSIX file times from 1970, so the raw count is the
+            // answer. Only reached on POSIX toolchains: MSVC defines the
+            // macro above and keeps the exact conversion.
+            seconds = static_cast<std::time_t>(
+                std::chrono::duration_cast<std::chrono::seconds>(written.time_since_epoch()).count());
 #endif
-            const std::time_t seconds = std::chrono::system_clock::to_time_t(system_time);
             std::tm parts{};
 #if defined(_WIN32)
             localtime_s(&parts, &seconds);
