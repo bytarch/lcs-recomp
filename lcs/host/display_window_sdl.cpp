@@ -147,7 +147,7 @@ void pump_events() noexcept {
     // what maps them onto the same space the overlay is rasterized in.
     int touch_width = 0;
     int touch_height = 0;
-    if (g_window != nullptr) SDL_Vulkan_GetDrawableSize(g_window, &touch_width, &touch_height);
+    if (g_window != nullptr) SDL_GetWindowSizeInPixels(g_window, &touch_width, &touch_height);
     if (touch_width > 0 && touch_height > 0)
         lcs_touch_note_surface(static_cast<std::uint32_t>(touch_width),
                                static_cast<std::uint32_t>(touch_height));
