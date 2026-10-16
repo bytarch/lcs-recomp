@@ -13,4 +13,4 @@
 /android/build/
 /android/app/build/
 /android/local.properties
-/build-configure-check/
+/build-configure-check/*.log  
