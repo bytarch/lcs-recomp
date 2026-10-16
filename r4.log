@@ -1,0 +1,15 @@
+Build APK	Build SDL2 and FFmpeg	﻿2026-10-16T07:38:24.8584215Z ##[group]Run mkdir -p android/dist/src
+Build APK	Build SDL2 and FFmpeg	2026-10-16T07:38:24.8584595Z [36;1mmkdir -p android/dist/src[0m
+Build APK	Build SDL2 and FFmpeg	2026-10-16T07:38:24.8584906Z [36;1mfor abi in arm64-v8a armeabi-v7a x86_64; do[0m
+Build APK	Build SDL2 and FFmpeg	2026-10-16T07:38:24.8585312Z [36;1m  android/build-deps.sh "$abi" "$ANDROID_NDK_HOME" android/dist[0m
+Build APK	Build SDL2 and FFmpeg	2026-10-16T07:38:24.8586034Z [36;1mdone[0m
+Build APK	Build SDL2 and FFmpeg	2026-10-16T07:38:24.8586496Z [36;1mandroid/prepare-sdl-java.sh "$(find android/dist/src -maxdepth 1 -type d -name 'SDL2-*' | head -1)"[0m
+Build APK	Build SDL2 and FFmpeg	2026-10-16T07:38:24.8652375Z shell: /usr/bin/bash -e {0}
+Build APK	Build SDL2 and FFmpeg	2026-10-16T07:38:24.8652631Z env:
+Build APK	Build SDL2 and FFmpeg	2026-10-16T07:38:24.8652826Z   ANDROID_NDK_VERSION: 26.1.10909125
+Build APK	Build SDL2 and FFmpeg	2026-10-16T07:38:24.8653102Z   GRADLE_VERSION: 8.9
+Build APK	Build SDL2 and FFmpeg	2026-10-16T07:38:24.8653402Z   ANDROID_NDK_HOME: /usr/local/lib/android/sdk/ndk/26.1.10909125
+Build APK	Build SDL2 and FFmpeg	2026-10-16T07:38:24.8653758Z   CMAKE_BUILD_PARALLEL_LEVEL: 4
+Build APK	Build SDL2 and FFmpeg	2026-10-16T07:38:24.8653996Z ##[endgroup]
+Build APK	Build SDL2 and FFmpeg	2026-10-16T07:38:24.8753343Z /home/runner/work/_temp/a3705143-66e0-4cec-999a-6690984ebb76.sh: line 3: android/build-deps.sh: Permission denied
+Build APK	Build SDL2 and FFmpeg	2026-10-16T07:38:24.8765270Z ##[error]Process completed with exit code 126.
