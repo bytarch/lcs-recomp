@@ -5,6 +5,7 @@
 #include "lcs_display_menu.hpp"
 #include "lcs_render_config.hpp"
 #include "lcs_runtime_log.hpp"
+#include "touch_controls.hpp"
 #include "vulkan/ge_spv.hpp"
 
 #include <vulkan/vulkan.h>
@@ -207,7 +208,7 @@ struct VulkanState {
     VkPipelineLayout present_layout{};
     VkDescriptorSetLayout present_set_layout{};
     VkDescriptorPool present_pool{};
-    std::array<VkDescriptorSet, 4> present_sets{};
+    std::array<VkDescriptorSet, 5> present_sets{};
     VkSampler game_sampler{};
     VkSampler overlay_sampler{};
     bool game_sampler_linear{};
@@ -218,6 +219,7 @@ struct VulkanState {
     std::vector<VkSemaphore> present_semaphores;
     GpuImage fps_overlay{};
     GpuImage settings_overlay{};
+    GpuImage touch_overlay{};
     GpuImage guest_image{};
     VkBuffer present_staging{};
     VkDeviceMemory present_staging_memory{};
@@ -1123,6 +1125,7 @@ constexpr std::size_t kPresentGame = 0u;
 constexpr std::size_t kPresentFps = 1u;
 constexpr std::size_t kPresentSettings = 2u;
 constexpr std::size_t kPresentGuest = 3u;
+constexpr std::size_t kPresentTouch = 4u;
 
 VkDeviceSize align_upload(VkDeviceSize value) noexcept {
     return (value + 255u) & ~VkDeviceSize{255u};
@@ -1234,6 +1237,7 @@ void destroy_present_device(VulkanState &s) noexcept {
     s.present_staging_bytes = 0u;
     destroy_image(s, s.fps_overlay);
     destroy_image(s, s.settings_overlay);
+    destroy_image(s, s.touch_overlay);
     destroy_image(s, s.guest_image);
     s.swap_format = VK_FORMAT_UNDEFINED;
     s.swap_present_mode = VK_PRESENT_MODE_FIFO_KHR;
@@ -1430,22 +1434,22 @@ bool ensure_present_pipeline(VulkanState &s, VkFormat format, std::string &error
         error = "Vulkan present pipeline layout failed";
         return false;
     }
-    VkDescriptorPoolSize pool_size{VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 4u};
+    VkDescriptorPoolSize pool_size{VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 5u};
     VkDescriptorPoolCreateInfo pool{};
     pool.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO;
-    pool.maxSets = 4u;
+    pool.maxSets = 5u;
     pool.poolSizeCount = 1u;
     pool.pPoolSizes = &pool_size;
     if (vkCreateDescriptorPool(s.device, &pool, nullptr, &s.present_pool) != VK_SUCCESS) {
         error = "Vulkan present descriptor pool failed";
         return false;
     }
-    const VkDescriptorSetLayout layouts[4]{s.present_set_layout, s.present_set_layout, s.present_set_layout,
-                                           s.present_set_layout};
+    const VkDescriptorSetLayout layouts[5]{s.present_set_layout, s.present_set_layout, s.present_set_layout,
+                                           s.present_set_layout, s.present_set_layout};
     VkDescriptorSetAllocateInfo alloc{};
     alloc.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO;
     alloc.descriptorPool = s.present_pool;
-    alloc.descriptorSetCount = 4u;
+    alloc.descriptorSetCount = 5u;
     alloc.pSetLayouts = layouts;
     if (vkAllocateDescriptorSets(s.device, &alloc, s.present_sets.data()) != VK_SUCCESS) {
         error = "Vulkan present descriptor sets failed";
@@ -1851,7 +1855,7 @@ void draw_present_layer(VulkanState &s, VkDescriptorSet set, std::int32_t x, std
 
 void cmd_present_pass(VulkanState &s, std::uint32_t image_index, VkDescriptorSet source,
                       std::uint32_t source_width, std::uint32_t source_height, bool draw_fps,
-                      bool draw_settings) {
+                      bool draw_settings, bool draw_touch) {
     const DisplayConfiguration &display = lcs_render_configuration().display;
     const PresentationRectangle fitted = calculate_presentation_rectangle(
         s.swap_width, s.swap_height, source_width, source_height, display.aspect_mode,
@@ -1879,6 +1883,12 @@ void cmd_present_pass(VulkanState &s, std::uint32_t image_index, VkDescriptorSet
         const std::int32_t panel_h = panel_w / 2;
         draw_present_layer(s, s.present_sets[kPresentSettings],
                            static_cast<std::int32_t>(s.swap_width) - panel_w - 24, 24, panel_w, panel_h, false);
+    }
+    // The touch overlay covers the whole swapchain and blends over everything.
+    if (draw_touch) {
+        draw_present_layer(s, s.present_sets[kPresentTouch], 0, 0,
+                           static_cast<std::int32_t>(s.swap_width),
+                           static_cast<std::int32_t>(s.swap_height), false);
     }
     vkCmdEndRenderPass(s.command);
 }
@@ -1916,10 +1926,12 @@ void retire_acquired_present(VulkanState &s) noexcept {
 }
 
 bool prepare_overlay_uploads(VulkanState &s, const Dx12FramePresentDecision &decision,
-                             VkDeviceSize fps_offset, VkDeviceSize settings_offset, bool &draw_fps,
-                             bool &draw_settings, std::string &error) {
+                             VkDeviceSize fps_offset, VkDeviceSize settings_offset,
+                             VkDeviceSize touch_offset, bool &draw_fps, bool &draw_settings,
+                             bool &draw_touch, std::string &error) {
     draw_fps = false;
     draw_settings = false;
+    draw_touch = false;
     auto *mapped = static_cast<std::uint8_t *>(s.present_staging_mapped);
     if (mapped == nullptr) return false;
     if (decision.composite_fps &&
@@ -1932,6 +1944,13 @@ bool prepare_overlay_uploads(VulkanState &s, const Dx12FramePresentDecision &dec
         rasterize_settings_overlay(decision.settings, mapped + settings_offset, kSettingsOverlayWidth,
                                    kSettingsOverlayHeight);
         draw_settings = true;
+    }
+    // The touch overlay is swapchain-sized, so it is rasterized at the swapchain
+    // resolution the present pass draws it at.
+    if (lcs_touch_overlay_active() &&
+        ensure_overlay_image(s, s.touch_overlay, s.swap_width, s.swap_height, error)) {
+        lcs_touch_rasterize_overlay(mapped + touch_offset, s.swap_width, s.swap_height);
+        draw_touch = true;
     }
     return true;
 }
@@ -1946,11 +1965,15 @@ bool record_swapchain_present(VulkanState &s, VkImageView source, std::uint32_t 
         static_cast<VkDeviceSize>(kSettingsOverlayWidth) * kSettingsOverlayHeight * 4u;
     const VkDeviceSize fps_offset = 0u;
     const VkDeviceSize settings_offset = align_upload(fps_bytes);
-    if (!ensure_present_staging(s, settings_offset + settings_bytes, error)) return false;
+    const VkDeviceSize touch_bytes = static_cast<VkDeviceSize>(s.swap_width) * s.swap_height * 4u;
+    const VkDeviceSize touch_offset = align_upload(settings_offset + settings_bytes);
+    if (!ensure_present_staging(s, touch_offset + touch_bytes, error)) return false;
     host_fps_note_presented_frame();
     bool draw_fps = false;
     bool draw_settings = false;
-    if (!prepare_overlay_uploads(s, decision, fps_offset, settings_offset, draw_fps, draw_settings, error))
+    bool draw_touch = false;
+    if (!prepare_overlay_uploads(s, decision, fps_offset, settings_offset, touch_offset, draw_fps,
+                                 draw_settings, draw_touch, error))
         return false;
     std::uint32_t index = 0u;
     if (!acquire_swap_image(s, index, error)) return false;
@@ -1958,11 +1981,13 @@ bool record_swapchain_present(VulkanState &s, VkImageView source, std::uint32_t 
         cmd_upload_image(s, s.fps_overlay, fps_offset, kFpsOverlayWidth, kFpsOverlayHeight);
     if (draw_settings)
         cmd_upload_image(s, s.settings_overlay, settings_offset, kSettingsOverlayWidth, kSettingsOverlayHeight);
+    if (draw_touch) cmd_upload_image(s, s.touch_overlay, touch_offset, s.swap_width, s.swap_height);
     write_present_set(s, kPresentGame, source, s.game_sampler);
     if (draw_fps) write_present_set(s, kPresentFps, s.fps_overlay.view, s.overlay_sampler);
     if (draw_settings) write_present_set(s, kPresentSettings, s.settings_overlay.view, s.overlay_sampler);
+    if (draw_touch) write_present_set(s, kPresentTouch, s.touch_overlay.view, s.overlay_sampler);
     cmd_present_pass(s, index, s.present_sets[kPresentGame], source_width, source_height, draw_fps,
-                     draw_settings);
+                     draw_settings, draw_touch);
     s.present_image_index = index;
     s.present_recorded = true;
     return true;
@@ -2040,12 +2065,16 @@ bool present_guest_image(VulkanState &s, std::span<const std::byte> rgba, std::u
         static_cast<VkDeviceSize>(kSettingsOverlayWidth) * kSettingsOverlayHeight * 4u;
     const VkDeviceSize fps_offset = align_upload(static_cast<VkDeviceSize>(guest_bytes));
     const VkDeviceSize settings_offset = align_upload(fps_offset + fps_bytes);
-    if (!ensure_present_staging(s, settings_offset + settings_bytes, error)) return false;
+    const VkDeviceSize touch_bytes = static_cast<VkDeviceSize>(s.swap_width) * s.swap_height * 4u;
+    const VkDeviceSize touch_offset = align_upload(settings_offset + settings_bytes);
+    if (!ensure_present_staging(s, touch_offset + touch_bytes, error)) return false;
     std::memcpy(s.present_staging_mapped, rgba.data(), guest_bytes);
     host_fps_note_presented_frame();
     bool draw_fps = false;
     bool draw_settings = false;
-    if (!prepare_overlay_uploads(s, decision, fps_offset, settings_offset, draw_fps, draw_settings, error))
+    bool draw_touch = false;
+    if (!prepare_overlay_uploads(s, decision, fps_offset, settings_offset, touch_offset, draw_fps,
+                                 draw_settings, draw_touch, error))
         return false;
     std::uint32_t index = 0u;
     if (!acquire_swap_image(s, index, error)) return false;
@@ -2062,10 +2091,13 @@ bool present_guest_image(VulkanState &s, std::span<const std::byte> rgba, std::u
     if (draw_fps) cmd_upload_image(s, s.fps_overlay, fps_offset, kFpsOverlayWidth, kFpsOverlayHeight);
     if (draw_settings)
         cmd_upload_image(s, s.settings_overlay, settings_offset, kSettingsOverlayWidth, kSettingsOverlayHeight);
+    if (draw_touch) cmd_upload_image(s, s.touch_overlay, touch_offset, s.swap_width, s.swap_height);
     write_present_set(s, kPresentGuest, s.guest_image.view, s.game_sampler);
     if (draw_fps) write_present_set(s, kPresentFps, s.fps_overlay.view, s.overlay_sampler);
     if (draw_settings) write_present_set(s, kPresentSettings, s.settings_overlay.view, s.overlay_sampler);
-    cmd_present_pass(s, index, s.present_sets[kPresentGuest], width, height, draw_fps, draw_settings);
+    if (draw_touch) write_present_set(s, kPresentTouch, s.touch_overlay.view, s.overlay_sampler);
+    cmd_present_pass(s, index, s.present_sets[kPresentGuest], width, height, draw_fps, draw_settings,
+                     draw_touch);
     if (vkEndCommandBuffer(s.command) != VK_SUCCESS) {
         vkResetCommandBuffer(s.command, 0u);
         retire_acquired_present(s);

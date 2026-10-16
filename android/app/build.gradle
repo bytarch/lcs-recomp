@@ -1,0 +1,94 @@
+plugins {
+    id 'com.android.application'
+}
+
+def abis = ['arm64-v8a', 'armeabi-v7a', 'x86_64']
+def sdlJavaDir = layout.buildDirectory.dir('generated/sdljava').get().asFile
+def jniLibsDir = layout.buildDirectory.dir('generated/jniLibs').get().asFile
+
+android {
+    namespace 'com.lcsnative.android'
+    compileSdk 34
+    ndkVersion '26.1.10909125'
+
+    defaultConfig {
+        applicationId 'com.lcsnative.android'
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+
+        ndk {
+            abiFilters abis
+        }
+
+        externalNativeBuild {
+            cmake {
+                // LCS_ANDROID_DEPS_DIR / LCS_ANDROID_PREBUILT_DIR are derived in
+                // lcs/CMakeLists.txt from CMAKE_ANDROID_ARCH_ABI and the source
+                // tree, so no per-ABI arguments are needed here.
+                arguments '-DANDROID_STL=c++_shared', '-DCMAKE_BUILD_TYPE=Release'
+                if (project.hasProperty('useCcache')) {
+                    arguments '-DCMAKE_CXX_COMPILER_LAUNCHER=ccache',
+                              '-DCMAKE_C_COMPILER_LAUNCHER=ccache'
+                }
+                cppFlags '-O2'
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path file("${rootDir}/../CMakeLists.txt")
+            version '3.22.1'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            // Signed with the debug key so CI artifacts are installable; a real
+            // release build needs a private keystore.
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    packagingOptions {
+        jniLibs {
+            pickFirsts += ['**/libc++_shared.so']
+        }
+    }
+
+    sourceSets {
+        main {
+            // SDL2's Java glue (SDLActivity, SDL.java, controller/audio managers)
+            // is staged by android/prepare-sdl-java.sh from the SDL2 sources.
+            java.srcDirs += sdlJavaDir
+            jniLibs.srcDirs += jniLibsDir
+        }
+    }
+}
+
+// Stage SDL2's Java glue into the generated source dir before compilation.
+tasks.register('prepareSdlJava', Copy) {
+    from("${rootDir}/dist/sdljava/org/libsdl/app")
+    into new File(sdlJavaDir, 'org/libsdl/app')
+}
+tasks.named('preBuild').configure { dependsOn 'prepareSdlJava' }
+
+// Copy the staged third-party .so files (SDL2 + FFmpeg) for each ABI next to
+// libmain.so so they land in the APK.
+tasks.register('copyThirdPartyJniLibs', Copy) {
+    abis.each { abi ->
+        from("${rootDir}/dist/${abi}/lib") {
+            include '*.so'
+            into new File(jniLibsDir, abi)
+        }
+    }
+}
+tasks.named('preBuild').configure { dependsOn 'copyThirdPartyJniLibs' }

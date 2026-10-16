@@ -1,0 +1,91 @@
+name: Android APK
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      abis:
+        description: 'ABIs to build'
+        required: false
+        default: 'arm64-v8a armeabi-v7a x86_64'
+
+concurrency:
+  group: android-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  apk:
+    name: Build APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      ANDROID_NDK_VERSION: 26.1.10909125
+      GRADLE_VERSION: 8.9
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install host tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake ninja-build glslang-tools ccache pkg-config
+
+      - uses: android-actions/setup-android@v3
+
+      - name: Install NDK, CMake and Gradle
+        run: |
+          sdkmanager "ndk;${ANDROID_NDK_VERSION}" "cmake;3.22.1"
+          curl -fsSL "https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip" \
+            -o gradle.zip
+          unzip -q gradle.zip -d "${HOME}"
+          echo "${HOME}/gradle-${GRADLE_VERSION}/bin" >> "$GITHUB_PATH"
+          echo "ANDROID_NDK_HOME=${ANDROID_HOME}/ndk/${ANDROID_NDK_VERSION}" >> "$GITHUB_ENV"
+          echo "CMAKE_BUILD_PARALLEL_LEVEL=$(nproc)" >> "$GITHUB_ENV"
+
+      # Configure-only pass: catches CMake and Gradle errors in a couple of
+      # minutes instead of after a full SDL2/FFmpeg build.
+      - name: Configure check
+        run: |
+          mkdir -p android/dist/arm64-v8a/include android/dist/arm64-v8a/lib android/prebuilt
+          cmake -S . -B build-configure-check -G Ninja \
+            -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake" \
+            -DANDROID_ABI=arm64-v8a \
+            -DANDROID_PLATFORM=android-21 \
+            -DANDROID_STL=c++_shared \
+            -DCMAKE_BUILD_TYPE=Release
+          cd android && gradle --no-daemon -q tasks > /dev/null
+
+      - name: Restore dependency cache
+        id: deps-cache
+        uses: actions/cache@v4
+        with:
+          path: android/dist
+          key: android-dist-${{ runner.os }}-ndk${{ env.ANDROID_NDK_VERSION }}-${{ hashFiles('android/build-deps.sh', 'android/prepare-sdl-java.sh') }}
+          restore-keys: |
+            android-dist-${{ runner.os }}-ndk${{ env.ANDROID_NDK_VERSION }}-
+
+      - name: Build SDL2 and FFmpeg
+        run: |
+          mkdir -p android/dist/src
+          for abi in ${{ inputs.abis || 'arm64-v8a armeabi-v7a x86_64' }}; do
+            android/build-deps.sh "$abi" "$ANDROID_NDK_HOME" android/dist
+          done
+          android/prepare-sdl-java.sh "$(find android/dist/src -maxdepth 1 -type d -name 'SDL2-*' | head -1)"
+
+      - name: Generate host assets
+        run: android/gen-android-assets.sh android/prebuilt
+
+      - name: Assemble APK
+        working-directory: android
+        env:
+          GRADLE_OPTS: -Dorg.gradle.jvmargs=-Xmx4g
+        run: gradle --no-daemon --stacktrace -PuseCcache=true assembleRelease
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: lcsnative-apk
+          path: android/app/build/outputs/apk/release/*.apk
+          if-no-files-found: error

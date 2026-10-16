@@ -9,6 +9,7 @@
 #include "lcs_display_menu.hpp"
 #include "lcs_key_bindings.hpp"
 #include "lcs_render_config.hpp"
+#include "touch_controls.hpp"
 #include "host_font_5x7.hpp"
 
 #include <SDL.h>
@@ -142,6 +143,14 @@ void apply_fullscreen_request() noexcept {
 
 void pump_events() noexcept {
     apply_fullscreen_request();
+    // Touch input arrives in normalized coordinates, so the drawable size is
+    // what maps them onto the same space the overlay is rasterized in.
+    int touch_width = 0;
+    int touch_height = 0;
+    if (g_window != nullptr) SDL_Vulkan_GetDrawableSize(g_window, &touch_width, &touch_height);
+    if (touch_width > 0 && touch_height > 0)
+        lcs_touch_note_surface(static_cast<std::uint32_t>(touch_width),
+                               static_cast<std::uint32_t>(touch_height));
     SDL_Event event;
     while (SDL_PollEvent(&event) == 1) {
         if (event.type == SDL_QUIT) g_closed = true;
@@ -166,6 +175,14 @@ void pump_events() noexcept {
         else if (event.type == SDL_MOUSEWHEEL) {
             if (!host_settings_open())
                 g_wheel.fetch_add(event.wheel.y, std::memory_order_relaxed);
+        } else if (event.type == SDL_FINGERDOWN || event.type == SDL_FINGERUP ||
+                   event.type == SDL_FINGERMOTION) {
+            if (touch_width > 0 && touch_height > 0) {
+                const bool down = event.type != SDL_FINGERUP;
+                lcs_touch_note_finger(static_cast<std::int64_t>(event.tfinger.fingerId),
+                                      event.tfinger.x * static_cast<float>(touch_width),
+                                      event.tfinger.y * static_cast<float>(touch_height), down);
+            }
         } else if (event.type == SDL_MOUSEMOTION) {
             if (!host_settings_open()) {
                 g_mouse_dx.fetch_add(event.motion.xrel, std::memory_order_relaxed);
@@ -559,6 +576,8 @@ HostInputState display_window_input() {
 
     HostInputState input{};
     const auto publish = [&]() -> HostInputState {
+        // Touch only fills what the keyboard and pad left alone.
+        if (!host_settings_open()) lcs_touch_merge_input(input);
         lcs_camera_set_axes(input.camera_x, input.camera_y);
         lcs_set_host_drive_inputs(input.accelerate, input.brake);
         cached = input;

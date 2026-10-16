@@ -5,3 +5,12 @@
 .vs/
 .vscode/
 /docker/ccache-*/
+# Android port build outputs
+/android/dist/
+/android/prebuilt/
+/android/.deps-work/
+/android/.gradle/
+/android/build/
+/android/app/build/
+/android/local.properties
+/build-configure-check/

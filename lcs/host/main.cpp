@@ -15,15 +15,36 @@
 #include <iostream>
 #include <limits>
 
+#ifdef __ANDROID__
+#include <SDL_system.h>
+// On Android SDL exports the app entry point as SDL_main and Java calls it
+// through dlsym, so main() is renamed here the way SDL expects.
+#include <SDL_main.h>
+#endif
+
 #ifndef LCS_NO_GENERATED
 namespace psprecomp {
 void register_generated_functions(Runtime &runtime);
 } // namespace psprecomp
 #endif
 
+#ifdef __ANDROID__
+// The working directory on Android is not the app's, so game data and settings
+// are resolved against the internal storage directory SDL reports.
+std::filesystem::path android_storage_root() {
+    const char *path = SDL_AndroidGetInternalStoragePath();
+    return std::filesystem::path(path != nullptr && *path != '\0' ? path : ".");
+}
+#endif
+
 int main(int argc, char **argv) {
+#ifdef __ANDROID__
+    std::filesystem::path game_root = android_storage_root() / "game";
+    std::filesystem::path elf_path = game_root / "EBOOT.ELF";
+#else
     std::filesystem::path elf_path = "game/EBOOT.ELF";
     std::filesystem::path game_root = "game";
+#endif
     std::uint64_t max_dispatches = std::numeric_limits<std::uint64_t>::max();
     double max_seconds = 0.0;
     for (int i = 1; i < argc; ++i) {
@@ -44,9 +65,13 @@ int main(int argc, char **argv) {
 
     try {
         std::error_code executable_error;
+#ifdef __ANDROID__
+        const std::filesystem::path executable_directory = android_storage_root();
+#else
         const std::filesystem::path executable_directory =
             argc > 0 ? std::filesystem::absolute(argv[0], executable_error).parent_path()
                      : std::filesystem::current_path();
+#endif
         lcs::initialize_lcs_render_configuration(executable_directory);
 
         auto elf = psprecomp::Elf32Image::from_file(elf_path);

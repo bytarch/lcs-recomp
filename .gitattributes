@@ -1,0 +1,7 @@
+# Build inputs consumed by Linux CI must stay LF regardless of the checkout.
+*.sh text eol=lf
+*.yml text eol=lf
+*.gradle text eol=lf
+CMakeLists.txt text eol=lf
+*.cmake text eol=lf
+*.txt text eol=lf

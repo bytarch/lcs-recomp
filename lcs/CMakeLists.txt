@@ -3,7 +3,14 @@ set(FFMPEG_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/ffmpeg)
 
 file(GLOB HOST_SOURCES CONFIGURE_DEPENDS host/*.cpp)
 list(REMOVE_ITEM HOST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/host/pack_font5x7.cpp)
-add_executable(LCSNative ${HOST_SOURCES})
+if(ANDROID)
+    # SDLActivity dlopen()s libmain.so and calls SDL_main() in it, so the
+    # executable becomes a shared library that keeps the LCSNative target name.
+    add_library(LCSNative SHARED ${HOST_SOURCES})
+    set_target_properties(LCSNative PROPERTIES OUTPUT_NAME main)
+else()
+    add_executable(LCSNative ${HOST_SOURCES})
+endif()
 target_include_directories(LCSNative PRIVATE host)
 if(WIN32)
     target_include_directories(LCSNative PRIVATE ${FFMPEG_DIR}/include)
@@ -13,6 +20,40 @@ target_link_libraries(LCSNative PRIVATE psprecomp_core)
 if(MSVC)
     target_compile_options(LCSNative PRIVATE /W4 /permissive- /EHsc)
     target_link_options(LCSNative PRIVATE /STACK:67108864)
+endif()
+
+if(ANDROID)
+    # Android builds libmain.so, which SDLActivity loads and calls SDL_main in.
+    # Every host source compiles unchanged; only the packaging differs.  The
+    # NDK cross build cannot run target executables, so the two build-time
+    # artifacts (host font header, SPIR-V header) are pre-generated with host
+    # tools by android/gen-android-assets.sh and passed in here.
+    if(NOT DEFINED LCS_ANDROID_DEPS_DIR)
+        # Gradle drives the native build for all ABIs with one set of arguments,
+        # so the per-ABI staging directory comes from the NDK toolchain instead.
+        set(LCS_ANDROID_DEPS_DIR
+            ${CMAKE_SOURCE_DIR}/android/dist/${CMAKE_ANDROID_ARCH_ABI})
+    endif()
+    if(NOT DEFINED LCS_ANDROID_PREBUILT_DIR)
+        set(LCS_ANDROID_PREBUILT_DIR ${CMAKE_SOURCE_DIR}/android/prebuilt)
+    endif()
+    target_include_directories(LCSNative BEFORE PRIVATE
+        "${LCS_ANDROID_PREBUILT_DIR}"
+        "${LCS_ANDROID_DEPS_DIR}/include")
+    target_include_directories(LCSNative PRIVATE "${LCS_ANDROID_DEPS_DIR}/include/SDL2")
+    target_compile_definitions(LCSNative PRIVATE LCS_VULKAN_GE_BACKEND=1)
+    # SDL2 and FFmpeg are shipped as shared libraries in jniLibs.
+    target_link_libraries(LCSNative PRIVATE
+        "${LCS_ANDROID_DEPS_DIR}/lib/libSDL2.so"
+        "${LCS_ANDROID_DEPS_DIR}/lib/libavcodec.so"
+        "${LCS_ANDROID_DEPS_DIR}/lib/libavformat.so"
+        "${LCS_ANDROID_DEPS_DIR}/lib/libavutil.so"
+        "${LCS_ANDROID_DEPS_DIR}/lib/libswresample.so"
+        "${LCS_ANDROID_DEPS_DIR}/lib/libswscale.so"
+        log android dl z)
+    target_link_options(LCSNative PRIVATE
+        "-Wl,-rpath,\$ORIGIN"
+        "-Wl,--no-undefined")
 endif()
 
 if(WIN32)
@@ -31,7 +72,7 @@ if(WIN32)
                 -File ${CMAKE_CURRENT_SOURCE_DIR}/scripts/stamp_outputs.ps1
                 -Executable $<TARGET_FILE:LCSNative>)
     endif()
-else()
+elseif(NOT ANDROID)
     find_package(PkgConfig REQUIRED)
     pkg_check_modules(FFMPEG REQUIRED IMPORTED_TARGET
         libavcodec libavformat libavutil libswresample libswscale)
@@ -121,15 +162,17 @@ else()
     target_compile_definitions(LCSNative PRIVATE LCS_NO_GENERATED)
 endif()
 
-add_executable(lcs_host_menu_test
-    ${CMAKE_SOURCE_DIR}/tests/lcs_host_menu_test.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/host/lcs_display_menu.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/host/lcs_render_config.cpp)
-target_include_directories(lcs_host_menu_test PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/host
-    ${CMAKE_SOURCE_DIR}/include)
-if(WIN32)
-    target_link_libraries(lcs_host_menu_test PRIVATE user32)
-else()
-    target_link_libraries(lcs_host_menu_test PRIVATE PkgConfig::SDL2 Threads::Threads)
+if(NOT ANDROID)
+    add_executable(lcs_host_menu_test
+        ${CMAKE_SOURCE_DIR}/tests/lcs_host_menu_test.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/host/lcs_display_menu.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/host/lcs_render_config.cpp)
+    target_include_directories(lcs_host_menu_test PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/host
+        ${CMAKE_SOURCE_DIR}/include)
+    if(WIN32)
+        target_link_libraries(lcs_host_menu_test PRIVATE user32)
+    else()
+        target_link_libraries(lcs_host_menu_test PRIVATE PkgConfig::SDL2 Threads::Threads)
+    endif()
 endif()
